@@ -1,0 +1,42 @@
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.deps.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.pdb
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csprojAssemblyReference.cache
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CopyComplete
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.pdb
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.deps.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.pdb
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csprojAssemblyReference.cache
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CopyComplete
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.pdb
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.deps.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.pdb
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csprojAssemblyReference.cache
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CopyComplete
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.pdb

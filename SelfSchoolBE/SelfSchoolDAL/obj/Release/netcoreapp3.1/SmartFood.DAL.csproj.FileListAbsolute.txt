@@ -1,0 +1,56 @@
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.deps.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.dev.json
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csprojAssemblyReference.cache
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.genruntimeconfig.cache
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.deps.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.dev.json
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csprojAssemblyReference.cache
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\3 курс\SmartFood\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.genruntimeconfig.cache
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.deps.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.dev.json
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csprojAssemblyReference.cache
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\WORKING CURSACH\SmartFood\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.genruntimeconfig.cache
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.deps.json
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.json
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.runtimeconfig.dev.json
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csprojAssemblyReference.cache
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\SmartFood\SelfSchoolDAL\obj\Release\netcoreapp3.1\SelfSchoolDAL.genruntimeconfig.cache

@@ -1,0 +1,142 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/SelfSchoolBLL.csproj": {}
+  },
+  "projects": {
+    "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/SelfSchoolBLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/SelfSchoolBLL.csproj",
+        "projectName": "SelfSchoolBLL",
+        "projectPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/SelfSchoolBLL.csproj",
+        "packagesPath": "/Users/veronikaushakova/.nuget/packages/",
+        "outputPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/veronikaushakova/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/SelfSchoolDAL.csproj": {
+                "projectPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/SelfSchoolDAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/SelfSchoolDAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/SelfSchoolDAL.csproj",
+        "projectName": "SelfSchoolDAL",
+        "projectPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/SelfSchoolDAL.csproj",
+        "packagesPath": "/Users/veronikaushakova/.nuget/packages/",
+        "outputPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/veronikaushakova/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+nb-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-label {
+  display: none;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+}
+
+.answer-search {
+  margin-left: 1em;
+  display: flex;
+}

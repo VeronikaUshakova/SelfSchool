@@ -21,6 +21,14 @@ import {
 } from "./services/answer.service";
 import {HttpClientModule} from "@angular/common/http";
 import {AdminService, IAdminService} from "./services/admin.service";
+import {ClassSchoolService, IClassSchoolService} from "./services/class-school.service";
+import {FamilyService, IFamilyService} from "./services/family.service";
+import {ILessonService, LessonService} from "./services/lesson.service";
+import {IMaterialService, MaterialService} from "./services/material.service";
+import {IParentService, ParentService} from "./services/parent.service";
+import {IPupilService, PupilService} from "./services/pupil.service";
+import {ITaskLessonService, TaskLessonService} from "./services/task-lesson.service";
+import {ITeacherService, TeacherService} from "./services/teacher.service";
 
 @NgModule({
   declarations: [
@@ -46,6 +54,14 @@ import {AdminService, IAdminService} from "./services/admin.service";
   providers: [
     { provide: IAnswerService, useClass: AnswerService },
     { provide: IAdminService, useClass: AdminService },
+    { provide: IClassSchoolService, useClass: ClassSchoolService },
+    { provide: IFamilyService, useClass: FamilyService },
+    { provide: ILessonService, useClass: LessonService },
+    { provide: IMaterialService, useClass: MaterialService },
+    { provide: IParentService, useClass: ParentService },
+    { provide: IPupilService, useClass: PupilService },
+    { provide: ITaskLessonService, useClass: TaskLessonService },
+    { provide: ITeacherService, useClass: TeacherService }
   ],
   bootstrap: [AppComponent]
 })

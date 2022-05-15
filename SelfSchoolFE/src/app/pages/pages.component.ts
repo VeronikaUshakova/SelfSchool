@@ -11,44 +11,44 @@ export class PagesComponent implements OnInit {
 
   public items: NbMenuItem[] = [
     {
-      title: 'Admin',
+      title: 'Admins',
       link: 'admin/list',
     },
     {
-      title: 'Answer',
+      title: 'Answers',
       link: 'answer/list',
     },
     {
-      title: 'Class',
+      title: 'Classes',
       link: 'class/list',
     },
     {
-      title: 'Family',
-      link: 'family',
+      title: 'Families',
+      link: 'family/list',
     },
     {
-      title: 'Lesson',
-      link: 'lesson',
+      title: 'Lessons',
+      link: 'lesson/list',
     },
     {
       title: 'Material',
-      link: 'material',
+      link: 'material/list',
     },
     {
-      title: 'Parent',
-      link: 'parent',
+      title: 'Parents',
+      link: 'parent/list',
     },
     {
-      title: 'Pupil',
-      link: 'pupil',
+      title: 'Pupils',
+      link: 'pupil/list',
     },
     {
-      title: 'Task',
-      link: 'task',
+      title: 'Tasks',
+      link: 'task/list',
     },
     {
-      title: 'Teacher',
-      link: 'teacher',
+      title: 'Teachers',
+      link: 'teacher/list',
     },
   ]
 

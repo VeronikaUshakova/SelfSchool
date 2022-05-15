@@ -1,1 +1,38 @@
-<p>family-list works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="family">
+      <h5>Families</h5>
+      <div class="family-search">
+        <label class="search-label" for="search">Search:</label>
+        <input type="text" nbInput status="success" placeholder="Search" [nbFilterInput]="dataSource" id="search" class="search-input">
+      </div>
+    </div>
+    <button nbButton status="success" (click)="openNewFamily()">New Family</button>
+  </nb-card-header>
+  <nb-card-body>
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" *ngIf="families.length !== 0">
+
+      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: defaultColumns"></tr>
+
+      <ng-container [nbTreeGridColumnDef]="customColumn">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+          {{customColumn}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          {{row.data[customColumn]}}
+        </td>
+      </ng-container>
+
+      <ng-container *ngFor="let column of defaultColumns; let index = index"
+                    [nbTreeGridColumnDef]="column"
+                    [showOn]="getShowOn(index)">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+          {{column}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+      </ng-container>
+    </table>
+    <p *ngIf="families.length === 0">Not Found Families!</p>
+  </nb-card-body>
+</nb-card>

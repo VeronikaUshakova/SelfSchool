@@ -20,17 +20,10 @@ import {
   NbTreeGridModule,
   NbCardModule, NbButtonModule, NbInputModule, NbSelectModule
 } from '@nebular/theme';
-import {AppRoutingModule} from "../app-routing.module";
-import { AdminComponent } from './admin/admin.component';
-import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
-import { AdminListComponent } from './admin/admin-list/admin-list.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
-    AdminComponent,
-    AdminDetailComponent,
-    AdminListComponent,
   ],
   imports: [
     CommonModule,

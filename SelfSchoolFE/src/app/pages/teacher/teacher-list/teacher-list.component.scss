@@ -1,0 +1,18 @@
+nb-card-header {
+  display: flex;
+  justify-content: space-between;
+
+  & .teacher {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.search-label {
+  display: none;
+}
+
+.teacher-search {
+  margin-left: 1em;
+  display: flex;
+}

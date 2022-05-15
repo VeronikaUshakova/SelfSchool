@@ -1,0 +1,18 @@
+nb-card-header {
+  display: flex;
+  justify-content: space-between;
+
+  & .pupil {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.search-label {
+  display: none;
+}
+
+.pupil-search {
+  margin-left: 1em;
+  display: flex;
+}

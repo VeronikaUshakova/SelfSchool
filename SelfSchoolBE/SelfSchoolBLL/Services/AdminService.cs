@@ -75,8 +75,16 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
             admin.login = Hash.GetHashString(admin.login);
             admin.password = Hash.GetHashString(admin.password);
+
+            var adm = FindAdmin(adm => adm.login == admin.login);
+            
+            if (adm.Count != 0) {
+                throw new ValidationException("This login already exists");
+            }
+
             Database.Admins.Create(admin);
         }
         public void UpdateAdmin(Admin admin)
@@ -85,8 +93,28 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
-            admin.login = Hash.GetHashString(admin.login);
+
+            var currentAdmin = FindAdmin(curAdm => curAdm.idAdmin == admin.idAdmin);
+
+            if (currentAdmin[0].login != admin.login) {
+                admin.login = Hash.GetHashString(admin.login);
+            }
+
             admin.password = Hash.GetHashString(admin.password);
+
+            if (admin.login == currentAdmin[0].login &&
+                admin.password == currentAdmin[0].password)
+            {
+                throw new ValidationException("You didn't change anything");
+            }
+
+            var admins = FindAdmin(adm => (adm.login == admin.login && adm.idAdmin != admin.idAdmin));
+
+            if (admins.Count != 0)
+            {
+                throw new ValidationException("This login already exists");
+            }
+
             Database.Admins.Update(admin);
         }
         public void DeleteAdmin(int? id)

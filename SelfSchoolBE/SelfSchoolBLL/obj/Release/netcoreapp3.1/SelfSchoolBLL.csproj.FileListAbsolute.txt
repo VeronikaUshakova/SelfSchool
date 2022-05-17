@@ -1,0 +1,15 @@
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.Development.json
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\bin\Release\netcoreapp3.1\appsettings.json
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.deps.json
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolBLL.pdb
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.dll
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\bin\Release\netcoreapp3.1\SelfSchoolDAL.pdb
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.AssemblyReference.cache
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfoInputs.cache
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.AssemblyInfo.cs
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.csproj.CopyComplete
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.dll
+C:\Users\Veronika\Desktop\SelfSchoolBE\SelfSchoolBLL\obj\Release\netcoreapp3.1\SelfSchoolBLL.pdb

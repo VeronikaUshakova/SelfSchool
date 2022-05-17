@@ -6588,32 +6588,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/veronikaushakova/.nuget/packages/": {}
+    "C:\\Users\\Veronika\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/SelfSchoolBLL.csproj",
+      "projectUniqueName": "C:\\Users\\Veronika\\Desktop\\SelfSchoolBE\\SelfSchoolBLL\\SelfSchoolBLL.csproj",
       "projectName": "SelfSchoolBLL",
-      "projectPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/SelfSchoolBLL.csproj",
-      "packagesPath": "/Users/veronikaushakova/.nuget/packages/",
-      "outputPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolBLL/obj/",
+      "projectPath": "C:\\Users\\Veronika\\Desktop\\SelfSchoolBE\\SelfSchoolBLL\\SelfSchoolBLL.csproj",
+      "packagesPath": "C:\\Users\\Veronika\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Veronika\\Desktop\\SelfSchoolBE\\SelfSchoolBLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/veronikaushakova/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Veronika\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/SelfSchoolDAL.csproj": {
-              "projectPath": "/Users/veronikaushakova/Desktop/4 курс (2-ой семестр)/Диплом/SelfSchoolBE/SelfSchoolDAL/SelfSchoolDAL.csproj"
+            "C:\\Users\\Veronika\\Desktop\\SelfSchoolBE\\SelfSchoolDAL\\SelfSchoolDAL.csproj": {
+              "projectPath": "C:\\Users\\Veronika\\Desktop\\SelfSchoolBE\\SelfSchoolDAL\\SelfSchoolDAL.csproj"
             }
           }
         }
@@ -6648,7 +6650,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

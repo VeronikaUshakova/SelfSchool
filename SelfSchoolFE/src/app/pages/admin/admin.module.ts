@@ -5,7 +5,15 @@ import {AdminRoutingModule} from './admin-routing.module';
 import {AdminComponent} from "./admin.component";
 import {AdminListComponent} from "./admin-list/admin-list.component";
 import {AdminDetailComponent} from "./admin-detail/admin-detail.component";
-import {NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGridModule} from "@nebular/theme";
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbIconModule,
+  NbInputModule,
+  NbSelectModule,
+  NbTreeGridModule
+} from "@nebular/theme";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,6 +30,8 @@ import {NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGridM
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
+    ReactiveFormsModule,
+    NbIconModule,
   ]
 })
 export class AdminModule { }

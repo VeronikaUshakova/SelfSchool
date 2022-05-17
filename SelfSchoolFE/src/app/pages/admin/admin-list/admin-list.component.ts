@@ -37,7 +37,11 @@ export class AdminListComponent implements OnInit {
   ngOnInit(): void {
     this._adminService.findAdmins().subscribe(data => {
       this.admins = data;
-      this.dataSource = this.dataSourceBuilder.create(this.admins);
+      let adminsModification: any[] = [];
+      this.admins.forEach(admin => {
+        adminsModification.push({ data: admin });
+      })
+      this.dataSource = this.dataSourceBuilder.create(adminsModification);
     });
   }
 
@@ -61,5 +65,9 @@ export class AdminListComponent implements OnInit {
 
   public openNewAdmin() {
     this._route.navigate(['./pages/admin/detail']);
+  }
+
+  public openEditAdmin(id: number) {
+    this._route.navigate(['./pages/admin/detail'], {queryParams: {'idAdmin': id}});
   }
 }

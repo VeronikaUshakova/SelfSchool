@@ -12,7 +12,7 @@ import {
   NbMenuModule,
   NbTreeGridModule,
   NbButtonModule,
-  NbCardModule, NbInputModule, NbSelectModule
+  NbCardModule, NbInputModule, NbSelectModule, NbToastrModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
@@ -29,6 +29,8 @@ import {IParentService, ParentService} from "./services/parent.service";
 import {IPupilService, PupilService} from "./services/pupil.service";
 import {ITaskLessonService, TaskLessonService} from "./services/task-lesson.service";
 import {ITeacherService, TeacherService} from "./services/teacher.service";
+import {ReactiveFormsModule} from "@angular/forms";
+import {IToastrService, ToastrService} from "./services/toastr.service";
 
 @NgModule({
   declarations: [
@@ -48,8 +50,10 @@ import {ITeacherService, TeacherService} from "./services/teacher.service";
     NbTreeGridModule,
     NbCardModule,
     NbButtonModule,
+    NbToastrModule.forRoot(),
     NbInputModule,
     NbSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: IAnswerService, useClass: AnswerService },
@@ -61,7 +65,8 @@ import {ITeacherService, TeacherService} from "./services/teacher.service";
     { provide: IParentService, useClass: ParentService },
     { provide: IPupilService, useClass: PupilService },
     { provide: ITaskLessonService, useClass: TaskLessonService },
-    { provide: ITeacherService, useClass: TeacherService }
+    { provide: ITeacherService, useClass: TeacherService },
+    { provide: IToastrService, useClass: ToastrService }
   ],
   bootstrap: [AppComponent]
 })

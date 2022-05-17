@@ -92,7 +92,7 @@ namespace SelfSchoolWEB.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Edit(Admin admin)
         {
             try

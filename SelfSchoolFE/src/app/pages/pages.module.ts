@@ -20,6 +20,7 @@ import {
   NbTreeGridModule,
   NbCardModule, NbButtonModule, NbInputModule, NbSelectModule
 } from '@nebular/theme';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,8 @@ import {
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
+    ReactiveFormsModule,
+    NbIconModule,
   ]
 })
 export class PagesModule { }

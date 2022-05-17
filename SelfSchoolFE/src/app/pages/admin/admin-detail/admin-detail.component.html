@@ -1,1 +1,22 @@
-<p>admin-detail works!</p>
+<nb-card>
+  <nb-card-header>
+    <h5>{{idAdmin ? 'Edit Admin'  : 'New Admin'}}</h5>
+    <nb-icon icon="trash-2-outline" status="success" (click)="deleteAdmin()"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="form" (ngSubmit)="saveAdmin()">
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="Login" formControlName="login">
+        </div>
+        <div class="col-lg-6">
+          <input type="password" nbInput fullWidth status="success" placeholder="Password" formControlName="password">
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" (click)="openListAdmin()">Cancel</button>
+    <button nbButton status="success" (click)="saveAdmin()">Save Changes</button>
+  </nb-card-footer>
+</nb-card>

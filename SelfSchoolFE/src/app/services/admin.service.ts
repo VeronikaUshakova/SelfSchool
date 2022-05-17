@@ -26,7 +26,7 @@ export class AdminService {
   }
 
   public findAdmin(id: number): Observable<Admin> {
-    return this.http.get<Admin>(URL_API + 'admin/detail/' + id);
+    return this.http.get<Admin>(URL_API + 'admin/details/' + id);
   }
 
   public createAdmin(admin: Admin): Observable<string> {
@@ -34,7 +34,7 @@ export class AdminService {
   }
 
   public editAdmin(admin: Admin): Observable<string> {
-    return this.http.put<string>(URL_API + 'admin/edit', admin);
+    return this.http.post<string>(URL_API + 'admin/edit', admin);
   }
 
   public deleteAdmin(id: number): Observable<string> {

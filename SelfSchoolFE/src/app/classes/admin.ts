@@ -1,3 +1,5 @@
+import {Observable} from "rxjs";
+
 export class Admin {
   private readonly _idAdmin: number = 0;
   private readonly _login: string = '';

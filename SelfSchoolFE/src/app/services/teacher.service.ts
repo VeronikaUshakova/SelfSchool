@@ -26,7 +26,7 @@ export class TeacherService {
   }
 
   public findTeacher(id: number): Observable<Teacher> {
-    return this.http.get<Teacher>(URL_API + 'teacher/detail/' + id);
+    return this.http.get<Teacher>(URL_API + 'teacher/details/' + id);
   }
 
   public createTeacher(teacher: Teacher): Observable<string> {

@@ -1,1 +1,44 @@
-<p>parent-detail works!</p>
+<nb-card>
+  <nb-card-header>
+    <h5>{{idParent ? 'Edit Parent' : 'New Parent'}}</h5>
+    <nb-icon *ngIf="idParent" icon="trash-2-outline" status="success" (click)="deleteParent()"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="form" (ngSubmit)="saveParent()">
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="Login" formControlName="loginParent">
+        </div>
+        <div class="col-lg-6">
+          <input type="password" nbInput fullWidth status="success" placeholder="Password" formControlName="passwordParent">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="Name" formControlName="nameParent">
+        </div>
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="Surname" formControlName="surnameParent">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="email" nbInput fullWidth status="success" placeholder="Email" formControlName="emailParent">
+        </div>
+        <div class="col-lg-6">
+          <input type="tel" nbInput fullWidth status="success" placeholder="Phone" formControlName="phoneParent">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="Birthday" formControlName="birthdayParent">
+          <nb-datepicker #datepicker></nb-datepicker>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" (click)="openListParent()">Cancel</button>
+    <button nbButton status="success" (click)="saveParent()">Save Changes</button>
+  </nb-card-footer>
+</nb-card>

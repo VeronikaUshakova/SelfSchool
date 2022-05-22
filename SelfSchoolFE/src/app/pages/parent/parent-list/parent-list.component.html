@@ -19,7 +19,7 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
           {{customColumn}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditParent(row.data?.idParent)">
           {{row.data[customColumn]}}
         </td>
       </ng-container>
@@ -30,7 +30,9 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
           {{column}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditParent(row.data?.idParent)">
+          {{row.data[column] || '-'}}
+        </td>
       </ng-container>
     </table>
     <p *ngIf="parents.length === 0">Not Found Parents!</p>

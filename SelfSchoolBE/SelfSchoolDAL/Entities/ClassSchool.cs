@@ -13,11 +13,8 @@ namespace SelfSchoolDAL.Entities
         [Key]
         public int idClass { get; set; }
         [Required]
-        [ForeignKey("idTeacher")]
-        public ICollection<Teacher> teachers { get; set; }
-        [Required]
         public int numberClass { get; set; }
         [Required]
-        public int letterClass { get; set; }
+        public string letterClass { get; set; }
     }
 }

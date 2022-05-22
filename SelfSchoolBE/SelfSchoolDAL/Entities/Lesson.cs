@@ -15,13 +15,9 @@ namespace SelfSchoolDAL.Entities
         [Required]
         public string nameLesson { get; set; }
         [Required]
-        [ForeignKey("idTeacher")]
-        public ICollection<Teacher> teachers{get; set;}
+        public int idTeacher{get; set;}
         [Required]
         public int dateLesson { get; set; }
-        [Required]
-        [ForeignKey("idMaterial")]
-        public ICollection<Material> materials { get; set; }
 
     }
 }

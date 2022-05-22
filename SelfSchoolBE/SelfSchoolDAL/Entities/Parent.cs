@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace SelfSchoolDAL.Entities
         [Required]
         public string surnameParent { get; set; }
         [Required]
-        public int birthdayParent { get; set; }
+        public long birthdayParent { get; set; }
         [Required]
         public string emailParent { get; set; }
         public string phoneParent { get; set; }

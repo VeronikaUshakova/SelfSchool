@@ -26,7 +26,7 @@ export class ParentService {
   }
 
   public findParent(id: number): Observable<Parent> {
-    return this.http.get<Parent>(URL_API + 'parent/detail/' + id);
+    return this.http.get<Parent>(URL_API + 'parent/details/' + id);
   }
 
   public createParent(parent: Parent): Observable<string> {

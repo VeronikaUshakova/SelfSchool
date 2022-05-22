@@ -26,7 +26,7 @@ export class MaterialService {
   }
 
   public findMaterial(id: number): Observable<Material> {
-    return this.http.get<Material>(URL_API + 'material/detail/' + id);
+    return this.http.get<Material>(URL_API + 'material/details/' + id);
   }
 
   public createMaterial(material: Material): Observable<string> {

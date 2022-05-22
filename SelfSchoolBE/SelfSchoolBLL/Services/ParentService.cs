@@ -41,8 +41,23 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
             parent.loginParent = Hash.GetHashString(parent.loginParent);
             parent.passwordParent = Hash.GetHashString(parent.passwordParent);
+
+            var parents = FindParent(p => (p.loginParent == parent.loginParent) ||
+            (p.emailParent == parent.emailParent) || (p.phoneParent == parent.phoneParent));
+
+            var pupils = Database.Pupils.Find(p => (p.loginPupil == parent.loginParent) ||
+            (p.emailPupil == parent.emailParent) || (p.phonePupil == parent.phoneParent));
+
+            var teachers = Database.Teachers.Find(t => (t.loginTeacher == parent.loginParent) ||
+            (t.emailTeacher == parent.emailParent) || (t.phoneTeacher == parent.phoneParent));
+
+            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0)) {
+                throw new ValidationException("This login, email or phone already exists");
+            }
+
             Database.Parents.Create(parent);
         }
         public void UpdateParent(Parent parent)
@@ -51,8 +66,46 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
-            parent.loginParent = Hash.GetHashString(parent.loginParent);
-            parent.passwordParent = Hash.GetHashString(parent.passwordParent);
+
+            var currentParent = FindParent(curP => curP.idParent == parent.idParent);
+
+            if (currentParent[0].loginParent != parent.loginParent)
+            {
+                parent.loginParent = Hash.GetHashString(parent.loginParent);
+            }
+
+            if (currentParent[0].passwordParent != parent.passwordParent)
+            {
+                parent.passwordParent = Hash.GetHashString(parent.passwordParent);
+            }
+
+            if (parent.loginParent == currentParent[0].loginParent &&
+                parent.passwordParent == currentParent[0].passwordParent &&
+                parent.nameParent == currentParent[0].nameParent &&
+                parent.surnameParent == currentParent[0].surnameParent &&
+                parent.phoneParent == currentParent[0].phoneParent &&
+                parent.emailParent == currentParent[0].emailParent &&
+                parent.birthdayParent == currentParent[0].birthdayParent)
+            {
+                throw new ValidationException("You didn't change anything");
+            }
+
+            var parents = FindParent(p => (p.loginParent == parent.loginParent && 
+            p.idParent != parent.idParent) || (p.emailParent == parent.emailParent &&
+            p.idParent != parent.idParent) || (p.phoneParent == parent.phoneParent &&
+            p.idParent != parent.idParent));
+
+            var pupils = Database.Pupils.Find(p => (p.loginPupil == parent.loginParent) ||
+            (p.emailPupil == parent.emailParent) || (p.phonePupil == parent.phoneParent));
+
+            var teachers = Database.Teachers.Find(t => (t.loginTeacher == parent.loginParent) ||
+            (t.emailTeacher == parent.emailParent) || (t.phoneTeacher == parent.phoneParent));
+
+            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0))
+            {
+                throw new ValidationException("This login, email or phone already exists");
+            }
+
             Database.Parents.Update(parent);
         }
         public void DeleteParent(int? id)

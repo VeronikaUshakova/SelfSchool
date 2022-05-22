@@ -26,7 +26,7 @@ export class FamilyService {
   }
 
   public findFamily(id: number): Observable<Family> {
-    return this.http.get<Family>(URL_API + 'family/detail/' + id);
+    return this.http.get<Family>(URL_API + 'family/details/' + id);
   }
 
   public createFamily(family: Family): Observable<string> {

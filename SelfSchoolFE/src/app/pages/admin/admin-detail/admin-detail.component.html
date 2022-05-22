@@ -1,7 +1,7 @@
 <nb-card>
   <nb-card-header>
     <h5>{{idAdmin ? 'Edit Admin'  : 'New Admin'}}</h5>
-    <nb-icon icon="trash-2-outline" status="success" (click)="deleteAdmin()"></nb-icon>
+    <nb-icon *ngIf="idAdmin" icon="trash-2-outline" status="success" (click)="deleteAdmin()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form" (ngSubmit)="saveAdmin()">

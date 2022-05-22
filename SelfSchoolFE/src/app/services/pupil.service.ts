@@ -26,7 +26,7 @@ export class PupilService {
   }
 
   public findPupil(id: number): Observable<Pupil> {
-    return this.http.get<Pupil>(URL_API + 'pupil/detail/' + id);
+    return this.http.get<Pupil>(URL_API + 'pupil/details/' + id);
   }
 
   public createPupil(pupil: Pupil): Observable<string> {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Admin} from "../../../classes/admin";
 import {IAdminService} from "../../../services/admin.service";
 import {IToastrService} from "../../../services/toastr.service";
 import {ActivatedRoute, Router} from "@angular/router";

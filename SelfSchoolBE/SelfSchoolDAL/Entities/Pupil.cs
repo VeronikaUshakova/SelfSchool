@@ -21,13 +21,11 @@ namespace SelfSchoolDAL.Entities
         [Required]
         public string surnamePupil { get; set; }
         [Required]
-        public int birthdayPupil { get; set; }
+        public long birthdayPupil { get; set; }
         [Required]
         public string emailPupil { get; set; }
         public string phonePupil { get; set; }
         [Required]
-        [ForeignKey("idClass")]
-
-        public ICollection<ClassSchool> classes { get; set; }
+        public int idClass { get; set; }
     }
 }

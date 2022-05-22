@@ -10,6 +10,7 @@ import {
 import {Router} from "@angular/router";
 import {Teacher} from "../../../classes/teacher";
 import {ITeacherService} from "../../../services/teacher.service";
+import {Teacher_ext} from "../../../classes/teacher_ext";
 
 @Component({
   selector: 'app-teacher-list',
@@ -38,7 +39,14 @@ export class TeacherListComponent implements OnInit {
   ngOnInit(): void {
     this._teacherService.findTeachers().subscribe(data => {
       this.teachers = data;
-      this.dataSource = this.dataSourceBuilder.create(this.teachers);
+      let teachersModification: any[] = [];
+      this.teachers.forEach(teacher => {
+        let t = new Teacher_ext(teacher.idTeacher, teacher.loginTeacher, teacher.passwordTeacher,teacher.nameTeacher,
+          teacher.surnameTeacher, new Date(teacher.birthdayTeacher).toDateString(), teacher.emailTeacher, teacher.phoneTeacher,
+          teacher.subjectTeacher);
+        teachersModification.push({ data: t });
+      })
+      this.dataSource = this.dataSourceBuilder.create(teachersModification);
     });
   }
 
@@ -62,5 +70,9 @@ export class TeacherListComponent implements OnInit {
 
   public openNewTeacher() {
     this._route.navigate(['./pages/teacher/detail']);
+  }
+
+  public openEditTeacher(id: number) {
+    this._route.navigate(['./pages/teacher/detail'], {queryParams: {'idTeacher': id}});
   }
 }

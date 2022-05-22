@@ -20,7 +20,7 @@ namespace SelfSchoolDAL.Entities
         [Required]
         public string surnameTeacher { get; set; }
         [Required]
-        public int birthdayTeacher { get; set; }
+        public long birthdayTeacher { get; set; }
         [Required]
         public string emailTeacher { get; set; }
         public string phoneTeacher { get; set; }

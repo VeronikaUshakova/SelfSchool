@@ -10,6 +10,7 @@ import {
 import {Router} from "@angular/router";
 import {Parent} from "../../../classes/parent";
 import {IParentService} from "../../../services/parent.service";
+import {Parent_ext} from "../../../classes/parent_ext";
 
 @Component({
   selector: 'app-parent-list',
@@ -38,7 +39,13 @@ export class ParentListComponent implements OnInit {
   ngOnInit(): void {
     this._parentService.findParents().subscribe(data => {
       this.parents = data;
-      this.dataSource = this.dataSourceBuilder.create(this.parents);
+      let parentsModification: any[] = [];
+      this.parents.forEach(parent => {
+        let p = new Parent_ext(parent.idParent, parent.loginParent, parent.passwordParent,parent.nameParent,
+          parent.surnameParent, new Date(parent.birthdayParent).toDateString(), parent.emailParent, parent.phoneParent);
+        parentsModification.push({ data: p });
+      })
+      this.dataSource = this.dataSourceBuilder.create(parentsModification);
     });
   }
 
@@ -62,5 +69,9 @@ export class ParentListComponent implements OnInit {
 
   public openNewParent() {
     this._route.navigate(['./pages/parent/detail']);
+  }
+
+  public openEditParent(id: number) {
+    this._route.navigate(['./pages/parent/detail'], {queryParams: {'idParent': id}});
   }
 }

@@ -13,10 +13,8 @@ namespace SelfSchoolDAL.Entities
         [Key]
         public int idFamily { get; set; }
         [Required]
-        [ForeignKey("idParent")]
-        public ICollection<Parent> parents { get; set; }
+        public int idParent { get; set; }
         [Required]
-        [ForeignKey("idPupil")]
-        public ICollection<Pupil> pupils { get; set; }
+        public int idPupil { get; set; }
     }
 }

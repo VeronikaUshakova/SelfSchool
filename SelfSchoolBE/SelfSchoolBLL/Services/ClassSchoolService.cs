@@ -40,6 +40,15 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
+            var classSchools = FindClassSchool(cs => cs.letterClass == classSchool.letterClass &&
+                cs.numberClass == cs.numberClass);
+
+            if (classSchools.Count != 0)
+            {
+                throw new ValidationException("This class already exists");
+            }
+
             Database.ClassSchools.Create(classSchool);
         }
         public void UpdateClassSchool(ClassSchool classSchool)
@@ -48,6 +57,23 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
+            var currentClassSchool = FindClassSchool(curClass => curClass.idClass == classSchool.idClass);
+            
+            if (currentClassSchool[0].letterClass == classSchool.letterClass &&
+                currentClassSchool[0].numberClass == classSchool.numberClass)
+            {
+                throw new ValidationException("You didn't change anything");
+            }
+
+            var classSchools = FindClassSchool(cs => cs.letterClass == classSchool.letterClass &&
+                cs.numberClass == cs.numberClass && cs.idClass != classSchool.idClass);
+
+            if (classSchools.Count != 0)
+            {
+                throw new ValidationException("This class already exists");
+            }
+
             Database.ClassSchools.Update(classSchool);
         }
         public void DeleteClassSchool(int? id)

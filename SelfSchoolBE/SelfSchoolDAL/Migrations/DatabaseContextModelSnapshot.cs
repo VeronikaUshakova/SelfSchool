@@ -54,6 +54,12 @@ namespace SelfSchoolDAL.Migrations
                     b.Property<int>("gradeAnswer")
                         .HasColumnType("int");
 
+                    b.Property<int>("idPupil")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idTask")
+                        .HasColumnType("int");
+
                     b.HasKey("idAnswer");
 
                     b.ToTable("Answers");
@@ -62,10 +68,13 @@ namespace SelfSchoolDAL.Migrations
             modelBuilder.Entity("SelfSchoolDAL.Entities.ClassSchool", b =>
                 {
                     b.Property<int>("idClass")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("letterClass")
-                        .HasColumnType("int");
+                    b.Property<string>("letterClass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("numberClass")
                         .HasColumnType("int");
@@ -82,6 +91,12 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("idParent")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idPupil")
+                        .HasColumnType("int");
+
                     b.HasKey("idFamily");
 
                     b.ToTable("Families");
@@ -90,9 +105,14 @@ namespace SelfSchoolDAL.Migrations
             modelBuilder.Entity("SelfSchoolDAL.Entities.Lesson", b =>
                 {
                     b.Property<int>("idLesson")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("dateLesson")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idTeacher")
                         .HasColumnType("int");
 
                     b.Property<string>("nameLesson")
@@ -107,7 +127,9 @@ namespace SelfSchoolDAL.Migrations
             modelBuilder.Entity("SelfSchoolDAL.Entities.Material", b =>
                 {
                     b.Property<int>("idMaterial")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<byte>("fileMaterial")
                         .HasColumnType("tinyint");
@@ -123,10 +145,12 @@ namespace SelfSchoolDAL.Migrations
             modelBuilder.Entity("SelfSchoolDAL.Entities.Parent", b =>
                 {
                     b.Property<int>("idParent")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("birthdayParent")
-                        .HasColumnType("int");
+                    b.Property<long>("birthdayParent")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("emailParent")
                         .IsRequired()
@@ -159,14 +183,19 @@ namespace SelfSchoolDAL.Migrations
             modelBuilder.Entity("SelfSchoolDAL.Entities.Pupil", b =>
                 {
                     b.Property<int>("idPupil")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("birthdayPupil")
-                        .HasColumnType("int");
+                    b.Property<long>("birthdayPupil")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("emailPupil")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("idClass")
+                        .HasColumnType("int");
 
                     b.Property<string>("loginPupil")
                         .IsRequired()
@@ -195,7 +224,9 @@ namespace SelfSchoolDAL.Migrations
             modelBuilder.Entity("SelfSchoolDAL.Entities.TaskLesson", b =>
                 {
                     b.Property<int>("idTask")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("dateTask")
                         .HasColumnType("int");
@@ -203,6 +234,12 @@ namespace SelfSchoolDAL.Migrations
                     b.Property<string>("descriptionTask")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("idLesson")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idMaterial")
+                        .HasColumnType("int");
 
                     b.Property<string>("nameTask")
                         .IsRequired()
@@ -216,10 +253,12 @@ namespace SelfSchoolDAL.Migrations
             modelBuilder.Entity("SelfSchoolDAL.Entities.Teacher", b =>
                 {
                     b.Property<int>("idTeacher")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("birthdayTeacher")
-                        .HasColumnType("int");
+                    b.Property<long>("birthdayTeacher")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("emailTeacher")
                         .IsRequired()
@@ -251,87 +290,6 @@ namespace SelfSchoolDAL.Migrations
                     b.HasKey("idTeacher");
 
                     b.ToTable("Teachers");
-                });
-
-            modelBuilder.Entity("SelfSchoolDAL.Entities.ClassSchool", b =>
-                {
-                    b.HasOne("SelfSchoolDAL.Entities.Pupil", null)
-                        .WithMany("classes")
-                        .HasForeignKey("idClass")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SelfSchoolDAL.Entities.Lesson", b =>
-                {
-                    b.HasOne("SelfSchoolDAL.Entities.TaskLesson", null)
-                        .WithMany("lessons")
-                        .HasForeignKey("idLesson")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SelfSchoolDAL.Entities.Material", b =>
-                {
-                    b.HasOne("SelfSchoolDAL.Entities.Lesson", null)
-                        .WithMany("materials")
-                        .HasForeignKey("idMaterial")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SelfSchoolDAL.Entities.TaskLesson", null)
-                        .WithMany("materials")
-                        .HasForeignKey("idMaterial")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SelfSchoolDAL.Entities.Parent", b =>
-                {
-                    b.HasOne("SelfSchoolDAL.Entities.Family", null)
-                        .WithMany("parents")
-                        .HasForeignKey("idParent")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SelfSchoolDAL.Entities.Pupil", b =>
-                {
-                    b.HasOne("SelfSchoolDAL.Entities.Answer", null)
-                        .WithMany("pupils")
-                        .HasForeignKey("idPupil")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SelfSchoolDAL.Entities.Family", null)
-                        .WithMany("pupils")
-                        .HasForeignKey("idPupil")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SelfSchoolDAL.Entities.TaskLesson", b =>
-                {
-                    b.HasOne("SelfSchoolDAL.Entities.Answer", null)
-                        .WithMany("tasks")
-                        .HasForeignKey("idTask")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SelfSchoolDAL.Entities.Teacher", b =>
-                {
-                    b.HasOne("SelfSchoolDAL.Entities.ClassSchool", null)
-                        .WithMany("teachers")
-                        .HasForeignKey("idTeacher")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SelfSchoolDAL.Entities.Lesson", null)
-                        .WithMany("teachers")
-                        .HasForeignKey("idTeacher")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

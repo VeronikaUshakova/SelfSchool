@@ -26,7 +26,7 @@ export class AnswerService implements IAnswerService{
   }
 
   public findAnswer(id: number): Observable<Answer> {
-    return this.http.get<Answer>(URL_API + 'answer/detail/' + id);
+    return this.http.get<Answer>(URL_API + 'answer/details/' + id);
   }
 
   public createAnswer(answer: Answer): Observable<string> {

@@ -13,11 +13,9 @@ namespace SelfSchoolDAL.Entities
         [Key]
         public int idAnswer { get; set; }
         [Required]
-        [ForeignKey("idPupil")]
-        public ICollection<Pupil> pupils{ get; set; }
+        public int idPupil { get; set; }
         [Required]
-        [ForeignKey("idTask")]
-        public ICollection<TaskLesson> tasks{ get; set; }
+        public int idTask { get; set; }
         public int gradeAnswer { get; set; }
         public byte fileAnswer { get; set; }
         public string fastAnswer { get; set; }

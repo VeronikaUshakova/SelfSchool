@@ -13,16 +13,13 @@ namespace SelfSchoolDAL.Entities
         [Key]
         public int idTask { get; set; }
         [Required]
-        [ForeignKey("idLesson")]
-        public ICollection<Lesson> lessons { get; set; }
+        public int idLesson { get; set; }
         [Required]
         public string nameTask { get; set; }
         [Required]
         public string descriptionTask { get; set; }
         [Required]
         public int dateTask { get; set; }
-        [Required]
-        [ForeignKey("idMaterial")]
-        public ICollection<Material> materials { get; set; }
+        public int idMaterial { get; set; }
     }
 }

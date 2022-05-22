@@ -41,8 +41,24 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
             teacher.loginTeacher = Hash.GetHashString(teacher.loginTeacher);
             teacher.passwordTeacher = Hash.GetHashString(teacher.passwordTeacher);
+
+            var parents = Database.Parents.Find(p => (p.loginParent == teacher.loginTeacher) ||
+            (p.emailParent == teacher.emailTeacher) || (p.phoneParent == teacher.phoneTeacher));
+
+            var pupils = Database.Pupils.Find(p => (p.loginPupil == teacher.loginTeacher) ||
+            (p.emailPupil == teacher.emailTeacher) || (p.phonePupil == teacher.phoneTeacher));
+
+            var teachers = FindTeacher(t => (t.loginTeacher == teacher.loginTeacher) ||
+            (t.emailTeacher == teacher.emailTeacher) || (t.phoneTeacher == teacher.phoneTeacher));
+
+            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0))
+            {
+                throw new ValidationException("This login, email or phone already exists");
+            }
+
             Database.Teachers.Create(teacher);
         }
         public void UpdateTeacher(Teacher teacher)
@@ -51,8 +67,47 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
-            teacher.loginTeacher = Hash.GetHashString(teacher.loginTeacher);
-            teacher.passwordTeacher = Hash.GetHashString(teacher.passwordTeacher);
+
+            var currentTeacher = FindTeacher(curT => curT.idTeacher == teacher.idTeacher);
+
+            if (currentTeacher[0].loginTeacher != teacher.loginTeacher)
+            {
+                teacher.loginTeacher = Hash.GetHashString(teacher.loginTeacher);
+            }
+
+            if (currentTeacher[0].passwordTeacher != teacher.passwordTeacher)
+            {
+                teacher.passwordTeacher = Hash.GetHashString(teacher.passwordTeacher);
+            }
+
+            if (teacher.loginTeacher == currentTeacher[0].loginTeacher &&
+                teacher.passwordTeacher == currentTeacher[0].passwordTeacher &&
+                teacher.nameTeacher == currentTeacher[0].nameTeacher &&
+                teacher.surnameTeacher == currentTeacher[0].surnameTeacher &&
+                teacher.phoneTeacher == currentTeacher[0].phoneTeacher &&
+                teacher.emailTeacher == currentTeacher[0].emailTeacher &&
+                teacher.birthdayTeacher == currentTeacher[0].birthdayTeacher &&
+                teacher.subjectTeacher == currentTeacher[0].subjectTeacher)
+            {
+                throw new ValidationException("You didn't change anything");
+            }
+
+            var parents = Database.Parents.Find(p => (p.loginParent == teacher.loginTeacher) &&
+            (p.emailParent == teacher.emailTeacher) || (p.phoneParent == teacher.phoneTeacher));
+
+            var pupils = Database.Pupils.Find(p => (p.loginPupil == teacher.loginTeacher) ||
+            (p.emailPupil == teacher.emailTeacher) || (p.phonePupil == teacher.phoneTeacher));
+
+            var teachers = FindTeacher(t => (t.loginTeacher == teacher.loginTeacher &&
+            t.idTeacher != teacher.idTeacher) || (t.emailTeacher == teacher.emailTeacher && 
+            t.idTeacher != teacher.idTeacher) || (t.phoneTeacher == teacher.phoneTeacher &&
+            t.idTeacher != teacher.idTeacher));
+
+            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0))
+            {
+                throw new ValidationException("This login, email or phone already exists");
+            }
+
             Database.Teachers.Update(teacher);
         }
         public void DeleteTeacher(int? id)

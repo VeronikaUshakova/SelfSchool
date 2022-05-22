@@ -26,7 +26,7 @@ export class ClassSchoolService {
   }
 
   public findClassSchool(id: number): Observable<ClassSchool> {
-    return this.http.get<ClassSchool>(URL_API + 'classschool/detail/' + id);
+    return this.http.get<ClassSchool>(URL_API + 'classschool/details/' + id);
   }
 
   public createClassSchool(classSchool: ClassSchool): Observable<string> {

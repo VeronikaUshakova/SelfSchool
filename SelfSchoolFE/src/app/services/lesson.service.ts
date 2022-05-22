@@ -26,7 +26,7 @@ export class LessonService {
   }
 
   public findLesson(id: number): Observable<Lesson> {
-    return this.http.get<Lesson>(URL_API + 'lesson/detail/' + id);
+    return this.http.get<Lesson>(URL_API + 'lesson/details/' + id);
   }
 
   public createLesson(lesson: Lesson): Observable<string> {

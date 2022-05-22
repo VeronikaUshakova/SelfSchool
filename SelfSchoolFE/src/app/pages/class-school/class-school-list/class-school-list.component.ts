@@ -19,7 +19,7 @@ import {IClassSchoolService} from "../../../services/class-school.service";
 export class ClassSchoolListComponent implements OnInit {
   public classSchools: ClassSchool[] = [];
   public customColumn = 'idClass';
-  public defaultColumns = ['teachers', 'numberClass', 'letterClass'];
+  public defaultColumns = ['numberClass', 'letterClass'];
 
   public dataSource: NbTreeGridDataSource<ClassSchool> = new NbTreeGridDataSource<ClassSchool>(new NbTreeGridSortService<ClassSchool>(),
     new NbTreeGridFilterService<ClassSchool>(), new NbTreeGridService<ClassSchool>(), new NbTreeGridDataService<ClassSchool>());
@@ -36,7 +36,11 @@ export class ClassSchoolListComponent implements OnInit {
   ngOnInit(): void {
     this._classSchoolService.findClassSchools().subscribe(data => {
       this.classSchools = data;
-      this.dataSource = this.dataSourceBuilder.create(this.classSchools);
+      let classSchoolModification: any[] = [];
+      this.classSchools.forEach(classSchool => {
+        classSchoolModification.push({ data: classSchool });
+      })
+      this.dataSource = this.dataSourceBuilder.create(classSchoolModification);
     });
   }
 
@@ -60,5 +64,9 @@ export class ClassSchoolListComponent implements OnInit {
 
   public openNewClassSchool() {
     this._route.navigate(['./pages/class/detail']);
+  }
+
+  public openEditClassSchool(id: number) {
+    this._route.navigate(['./pages/class/detail'], {queryParams: {'idClass': id}});
   }
 }

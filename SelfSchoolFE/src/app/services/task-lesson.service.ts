@@ -26,7 +26,7 @@ export class TaskLessonService {
   }
 
   public findTaskLesson(id: number): Observable<TaskLesson> {
-    return this.http.get<TaskLesson>(URL_API + 'tasklesson/detail/' + id);
+    return this.http.get<TaskLesson>(URL_API + 'tasklesson/details/' + id);
   }
 
   public createTaskLesson(taskLesson: TaskLesson): Observable<string> {

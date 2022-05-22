@@ -96,11 +96,15 @@ namespace SelfSchoolBLL.Services
 
             var currentAdmin = FindAdmin(curAdm => curAdm.idAdmin == admin.idAdmin);
 
-            if (currentAdmin[0].login != admin.login) {
+            if (currentAdmin[0].login != admin.login) 
+            {
                 admin.login = Hash.GetHashString(admin.login);
             }
 
-            admin.password = Hash.GetHashString(admin.password);
+            if (currentAdmin[0].password != admin.password)
+            {
+                admin.password = Hash.GetHashString(admin.password);
+            }
 
             if (admin.login == currentAdmin[0].login &&
                 admin.password == currentAdmin[0].password)

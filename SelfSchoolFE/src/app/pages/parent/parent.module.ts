@@ -5,7 +5,15 @@ import { ParentRoutingModule } from './parent-routing.module';
 import { ParentComponent } from './parent.component';
 import { ParentListComponent } from "./parent-list/parent-list.component";
 import { ParentDetailComponent } from "./parent-detail/parent-detail.component";
-import {NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGridModule} from "@nebular/theme";
+import {
+  NbButtonModule,
+  NbCardModule, NbDatepickerModule,
+  NbIconModule,
+  NbInputModule,
+  NbSelectModule,
+  NbTreeGridModule
+} from "@nebular/theme";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,6 +30,9 @@ import {NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGridM
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
+    ReactiveFormsModule,
+    NbIconModule,
+    NbDatepickerModule,
   ]
 })
 export class ParentModule { }

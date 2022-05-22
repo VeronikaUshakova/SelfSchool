@@ -18,7 +18,7 @@ import {
   NbSidebarModule,
   NbIconModule,
   NbTreeGridModule,
-  NbCardModule, NbButtonModule, NbInputModule, NbSelectModule
+  NbCardModule, NbButtonModule, NbInputModule, NbSelectModule, NbDatepickerModule
 } from '@nebular/theme';
 import {ReactiveFormsModule} from "@angular/forms";
 
@@ -49,6 +49,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     NbSelectModule,
     ReactiveFormsModule,
     NbIconModule,
+    NbDatepickerModule
   ]
 })
 export class PagesModule { }

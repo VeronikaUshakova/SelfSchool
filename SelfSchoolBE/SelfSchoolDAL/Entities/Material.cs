@@ -12,6 +12,6 @@ namespace SelfSchoolDAL.Entities
         [Key]
         public int idMaterial { get; set; }
         public string urlMaterial { get; set; }
-        public byte fileMaterial { get; set; }
+        public string fileMaterial { get; set; }
     }
 }

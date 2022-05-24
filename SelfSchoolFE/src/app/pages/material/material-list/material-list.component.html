@@ -19,7 +19,7 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
           {{customColumn}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditMaterial(row.data.idMaterial)">
           {{row.data[customColumn]}}
         </td>
       </ng-container>
@@ -30,7 +30,12 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
           {{column}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditMaterial(row.data.idMaterial)">
+          <div *ngIf="column === 'fileMaterial'">
+            <a *ngIf="row.data[column].length" [href]="fileLink(row.data[column])" target="_blank" (click)="$event.stopPropagation()">Download</a>
+          </div>
+          <span *ngIf="column !== 'fileMaterial'">{{row.data[column]}}</span>
+        </td>
       </ng-container>
     </table>
     <p *ngIf="materials.length === 0">Not Found Materials!</p>

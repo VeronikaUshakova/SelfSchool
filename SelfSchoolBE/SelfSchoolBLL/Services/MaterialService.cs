@@ -17,6 +17,20 @@ namespace SelfSchoolBLL.Services
 
         public async Task<List<Material>> GetALLMaterials() { 
             List<Material> materials = await Database.Materials.GetAll();
+
+            for (int i = materials.Count - 1; i >= 0; i--)
+            {
+                if (materials[i].fileMaterial.Length > 0)
+                {
+                    var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), materials[i].fileMaterial);
+                    if (!System.IO.File.Exists(pathToSave))
+                    {
+                        DeleteMaterial(materials[i].idMaterial);
+                    }
+                }
+            }
+
+            materials = await Database.Materials.GetAll();
             return materials;
         }
 
@@ -39,6 +53,15 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
+            var materials = FindMaterial(m => material.fileMaterial == m.fileMaterial ||
+            material.urlMaterial == m.fileMaterial);
+
+            if (materials.Count > 0) 
+            {
+                throw new ValidationException("This material already exists");
+            }
+
             Database.Materials.Create(material);
         }
         public void UpdateMaterial(Material material)
@@ -47,6 +70,16 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
+            var materials = FindMaterial(m => (material.fileMaterial == m.fileMaterial &&
+            material.idMaterial != m.idMaterial) || (material.urlMaterial == m.fileMaterial &&
+            material.idMaterial != m.idMaterial));
+
+            if (materials.Count > 0)
+            {
+                throw new ValidationException("This material already exists");
+            }
+
             Database.Materials.Update(material);
         }
         public void DeleteMaterial(int? id)

@@ -87,7 +87,7 @@ namespace SelfSchoolDAL.Migrations
                     idMaterial = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     urlMaterial = table.Column<string>(nullable: true),
-                    fileMaterial = table.Column<byte>(nullable: false)
+                    fileMaterial = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -12,7 +12,7 @@ import {
   NbMenuModule,
   NbTreeGridModule,
   NbButtonModule,
-  NbCardModule, NbInputModule, NbSelectModule, NbToastrModule, NbDatepickerModule
+  NbCardModule, NbInputModule, NbSelectModule, NbToastrModule, NbDatepickerModule, NbTimepickerModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
@@ -55,6 +55,7 @@ import {IToastrService, ToastrService} from "./services/toastr.service";
     NbSelectModule,
     ReactiveFormsModule,
     NbDatepickerModule.forRoot(),
+    NbTimepickerModule.forRoot(),
   ],
   providers: [
     { provide: IAnswerService, useClass: AnswerService },

@@ -9,7 +9,7 @@ using SelfSchoolDAL.DataContext;
 namespace SelfSchoolDAL.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220521161756_InitialCreate")]
+    [Migration("20220522172421_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,8 +133,8 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<byte>("fileMaterial")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("fileMaterial")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("urlMaterial")
                         .HasColumnType("nvarchar(max)");

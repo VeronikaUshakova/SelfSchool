@@ -5,7 +5,15 @@ import { MaterialRoutingModule } from './material-routing.module';
 import { MaterialComponent } from './material.component';
 import { MaterialListComponent } from "./material-list/material-list.component";
 import { MaterialDetailComponent } from "./material-detail/material-detail.component";
-import { NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGridModule } from "@nebular/theme";
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbIconModule,
+  NbInputModule,
+  NbSelectModule,
+  NbTreeGridModule
+} from "@nebular/theme";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,6 +29,8 @@ import { NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGrid
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
+    ReactiveFormsModule,
+    NbIconModule
   ]
 })
 export class MaterialModule { }

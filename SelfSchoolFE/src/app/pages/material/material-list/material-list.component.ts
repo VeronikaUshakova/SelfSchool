@@ -10,6 +10,7 @@ import {
 import {Router} from "@angular/router";
 import {Material} from "../../../classes/material";
 import {IMaterialService} from "../../../services/material.service";
+import {URL_API} from "../../../shared/constants";
 
 @Component({
   selector: 'app-material-list',
@@ -17,10 +18,10 @@ import {IMaterialService} from "../../../services/material.service";
   styleUrls: ['./material-list.component.scss']
 })
 export class MaterialListComponent implements OnInit {
-
+  public message: Blob = new Blob();
   public materials: Material[] = [];
   public customColumn = 'idMaterial';
-  public defaultColumns = ['nameMaterial', 'teachers', 'dateMaterial', 'materials'];
+  public defaultColumns = ['urlMaterial', 'fileMaterial'];
 
   public dataSource: NbTreeGridDataSource<Material> = new NbTreeGridDataSource<Material>(new NbTreeGridSortService<Material>(),
     new NbTreeGridFilterService<Material>(), new NbTreeGridService<Material>(), new NbTreeGridDataService<Material>());
@@ -37,7 +38,11 @@ export class MaterialListComponent implements OnInit {
   ngOnInit(): void {
     this._materialService.findMaterials().subscribe(data => {
       this.materials = data;
-      this.dataSource = this.dataSourceBuilder.create(this.materials);
+      let materialsModification: any[] = [];
+      this.materials.forEach(material => {
+        materialsModification.push({ data: material });
+      })
+      this.dataSource = this.dataSourceBuilder.create(materialsModification);
     });
   }
 
@@ -61,5 +66,13 @@ export class MaterialListComponent implements OnInit {
 
   public openNewMaterial() {
     this._route.navigate(['./pages/material/detail']);
+  }
+
+  public openEditMaterial(id: number) {
+    this._route.navigate(['./pages/material/detail'], {queryParams: {'idMaterial': id}});
+  }
+
+  public fileLink(fileLink: string){
+    return URL_API + fileLink;
   }
 }

@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using SelfSchoolBLL.Infrastructure;
 using SelfSchoolBLL.Services;
 using SelfSchoolDAL.Entities;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace SelfSchoolWEB.Controllers
@@ -50,6 +54,68 @@ namespace SelfSchoolWEB.Controllers
             {
                 return Content(ex.Message);
             }
+        }
+
+        [HttpPost, DisableRequestSizeLimit]
+        public async Task<ActionResult> Upload()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine("Resources");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                if (!Directory.Exists(pathToSave)) 
+                {
+                    Directory.CreateDirectory(pathToSave);
+                }
+
+                if (file.Length > 0)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    return new JsonResult(dbPath);
+                }
+                else
+                {
+                    return new JsonResult("You need to choose the file");
+                }
+            }
+            catch (ValidationException ex)
+            {
+                return Content(ex.Message);
+            }
+        }
+        [HttpGet, DisableRequestSizeLimit]
+        public async Task<IActionResult> Download([FromQuery] string fileUrl)
+        {
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), fileUrl);
+            if (!System.IO.File.Exists(pathToSave))
+                return NotFound();
+            var memory = new MemoryStream();
+            await using (var stream = new FileStream(pathToSave, FileMode.Open))
+            {
+                await stream.CopyToAsync(memory);
+            }
+            memory.Position = 0;
+            return File(memory, GetContentType(pathToSave), pathToSave);
+        }
+
+        private string GetContentType(string path)
+        {
+            var provider = new FileExtensionContentTypeProvider();
+            string contentType;
+
+            if (!provider.TryGetContentType(path, out contentType))
+            {
+                contentType = "application/octet-stream";
+            }
+
+            return contentType;
         }
 
         [HttpPut]

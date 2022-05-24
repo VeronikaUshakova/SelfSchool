@@ -1,0 +1,23 @@
+nb-card-header,
+nb-card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep nb-icon {
+  cursor: pointer;
+}
+
+input.file {
+  display: none;
+}
+
+.col-lg-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col-lg-3 span {
+  font-style: italic;
+}

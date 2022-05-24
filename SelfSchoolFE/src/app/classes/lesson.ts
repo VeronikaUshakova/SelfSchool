@@ -4,11 +4,11 @@ import {Material} from "./material";
 export class Lesson {
   private readonly _idLesson: number = 0;
   private readonly _nameLesson: string = '';
-  private readonly _teachers: Teacher[] = [];
+  private readonly _teachers: Teacher;
   private readonly _dateLesson: number = 0;
   private readonly _materials: Material[] = [];
 
-  constructor(idLesson: number, nameLesson: string, teachers: Teacher[], dateLesson: number, materials: Material[]) {
+  constructor(idLesson: number, nameLesson: string, teachers: Teacher, dateLesson: number, materials: Material[]) {
     this._idLesson = idLesson;
     this._nameLesson = nameLesson;
     this._teachers = teachers;
@@ -24,7 +24,7 @@ export class Lesson {
     return this._nameLesson;
   }
 
-  public get teachers(): Teacher[] {
+  public get teachers(): Teacher {
     return this._teachers;
   }
 

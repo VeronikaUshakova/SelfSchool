@@ -5,7 +5,15 @@ import { LessonRoutingModule } from './lesson-routing.module';
 import { LessonComponent } from './lesson.component';
 import { LessonListComponent } from "./lesson-list/lesson-list.component";
 import { LessonDetailComponent } from "./lesson-detail/lesson-detail.component";
-import {NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGridModule} from "@nebular/theme";
+import {
+  NbButtonModule,
+  NbCardModule, NbDatepickerModule,
+  NbIconModule,
+  NbInputModule,
+  NbSelectModule, NbTimepickerModule,
+  NbTreeGridModule
+} from "@nebular/theme";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,6 +30,11 @@ import {NbButtonModule, NbCardModule, NbInputModule, NbSelectModule, NbTreeGridM
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
+    ReactiveFormsModule,
+    NbIconModule,
+    NbSelectModule,
+    NbDatepickerModule,
+    NbTimepickerModule
   ]
 })
 export class LessonModule { }

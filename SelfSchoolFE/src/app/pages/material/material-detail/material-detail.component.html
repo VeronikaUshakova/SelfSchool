@@ -1,1 +1,31 @@
-<p>material-detail works!</p>
+<nb-card>
+  <nb-card-header>
+    <h5>{{idMaterial ? 'Edit Material'  : 'New Material'}}</h5>
+    <nb-icon *ngIf="idMaterial" icon="trash-2-outline" status="success" (click)="deleteMaterialSchool()"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="form" >
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="Link" formControlName="urlMaterial">
+        </div>
+        <div class="col-lg-3">
+          <input class="file" #file (change)="uploadFile(file.files)" type="file" nbInput fullWidth status="success" placeholder="File" formControlName="fileMaterial">
+          <button nbButton status="success" (click)="file.click()">Upload material</button>
+        </div>
+        <div class="col-lg-3">
+        <span class="upload" *ngIf="progress > 0">
+          {{progress}}%
+        </span>
+          <span class="upload" *ngIf="message">
+          {{message}}
+        </span>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" (click)="openListMaterialSchool()">Cancel</button>
+    <button nbButton status="success" (click)="saveMaterialSchool()">Save Changes</button>
+  </nb-card-footer>
+</nb-card>

@@ -26,11 +26,9 @@ namespace SelfSchoolDAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("login")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("idAdmin");
@@ -48,10 +46,10 @@ namespace SelfSchoolDAL.Migrations
                     b.Property<string>("fastAnswer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("fileAnswer")
-                        .HasColumnType("tinyint");
-
                     b.Property<int>("gradeAnswer")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idMaterial")
                         .HasColumnType("int");
 
                     b.Property<int>("idPupil")
@@ -73,7 +71,6 @@ namespace SelfSchoolDAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("letterClass")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("numberClass")
@@ -109,14 +106,13 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("dateLesson")
-                        .HasColumnType("int");
+                    b.Property<long>("dateLesson")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("idTeacher")
                         .HasColumnType("int");
 
                     b.Property<string>("nameLesson")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("idLesson");
@@ -153,26 +149,21 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("emailParent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("loginParent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nameParent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("passwordParent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneParent")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("surnameParent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("idParent");
@@ -191,29 +182,24 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("emailPupil")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("idClass")
                         .HasColumnType("int");
 
                     b.Property<string>("loginPupil")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("namePupil")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("passwordPupil")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phonePupil")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("surnamePupil")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("idPupil");
@@ -228,11 +214,10 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("dateTask")
-                        .HasColumnType("int");
+                    b.Property<long>("dateTask")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("descriptionTask")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("idLesson")
@@ -242,7 +227,6 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("nameTask")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("idTask");
@@ -261,30 +245,24 @@ namespace SelfSchoolDAL.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("emailTeacher")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("loginTeacher")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nameTeacher")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("passwordTeacher")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneTeacher")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("subjectTeacher")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("surnameTeacher")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("idTeacher");

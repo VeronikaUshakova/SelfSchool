@@ -11,9 +11,7 @@ namespace SelfSchoolDAL.Entities
     {
         [Key]
         public int idAdmin { get; set; }
-        [Required]
         public string login { get; set; }
-        [Required]
         public string password { get; set; }
     }
 }

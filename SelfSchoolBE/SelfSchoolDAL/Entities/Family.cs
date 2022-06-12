@@ -12,9 +12,7 @@ namespace SelfSchoolDAL.Entities
     {
         [Key]
         public int idFamily { get; set; }
-        [Required]
         public int idParent { get; set; }
-        [Required]
         public int idPupil { get; set; }
     }
 }

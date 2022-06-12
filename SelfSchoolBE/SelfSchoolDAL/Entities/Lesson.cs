@@ -12,12 +12,9 @@ namespace SelfSchoolDAL.Entities
     {
         [Key]
         public int idLesson { get; set; }
-        [Required]
         public string nameLesson { get; set; }
-        [Required]
         public int idTeacher{get; set;}
-        [Required]
-        public int dateLesson { get; set; }
+        public long dateLesson { get; set; }
 
     }
 }

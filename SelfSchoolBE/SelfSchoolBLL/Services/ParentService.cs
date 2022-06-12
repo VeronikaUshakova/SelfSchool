@@ -54,7 +54,9 @@ namespace SelfSchoolBLL.Services
             var teachers = Database.Teachers.Find(t => (t.loginTeacher == parent.loginParent) ||
             (t.emailTeacher == parent.emailParent) || (t.phoneTeacher == parent.phoneParent));
 
-            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0)) {
+            var admins = Database.Admins.Find(a => (a.login == parent.loginParent));
+
+            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0) || (admins.Count > 0)) {
                 throw new ValidationException("This login, email or phone already exists");
             }
 
@@ -101,7 +103,9 @@ namespace SelfSchoolBLL.Services
             var teachers = Database.Teachers.Find(t => (t.loginTeacher == parent.loginParent) ||
             (t.emailTeacher == parent.emailParent) || (t.phoneTeacher == parent.phoneParent));
 
-            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0))
+            var admins = Database.Admins.Find(a => (a.login == parent.loginParent));
+
+            if ((parents.Count > 0) || (pupils.Count > 0) || (teachers.Count > 0) || (admins.Count > 0))
             {
                 throw new ValidationException("This login, email or phone already exists");
             }
@@ -124,7 +128,7 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
-            Parent parent = Database.Parents.GetByLoginPassword(login, password);
+            Parent parent = Database.Parents.GetByLoginPassword(login, password)[0];
             if (parent.passwordParent == Hash.GetHashString(password) && parent.loginParent == Hash.GetHashString(login))
             {
                 return true;

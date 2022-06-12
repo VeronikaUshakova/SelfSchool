@@ -12,7 +12,7 @@ namespace SelfSchoolDAL.Interfaces
     {
         Task<List<Admin>> GetAll();
         Admin Get(int id);
-        Admin GetByLoginPassword(string logon, string password);
+        List<Admin> GetByLoginPassword(string logon, string password);
         List<Admin> Find(Func<Admin, Boolean> predicate);
         void Create(Admin item);
         void Update(Admin item);

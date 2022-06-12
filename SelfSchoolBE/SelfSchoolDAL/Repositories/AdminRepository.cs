@@ -31,11 +31,10 @@ namespace SelfSchoolDAL.Repositories
             admin = context.Admins.Find(id);
             return admin;
         }
-        public Admin GetByLoginPassword(string login, string password)
+        public List<Admin> GetByLoginPassword(string login, string password)
         {
-            Admin admin = new Admin();
-            admin = context.Admins.Find(login, password);
-            return admin;
+            List<Admin> admins = Find(adm => adm.login == login && adm.password == password);
+            return admins;
         }
         public List<Admin> Find(Func<Admin, Boolean> predicate)
         {

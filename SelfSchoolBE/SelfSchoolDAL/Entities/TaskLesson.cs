@@ -12,14 +12,10 @@ namespace SelfSchoolDAL.Entities
     {
         [Key]
         public int idTask { get; set; }
-        [Required]
         public int idLesson { get; set; }
-        [Required]
         public string nameTask { get; set; }
-        [Required]
         public string descriptionTask { get; set; }
-        [Required]
-        public int dateTask { get; set; }
+        public long dateTask { get; set; }
         public int idMaterial { get; set; }
     }
 }

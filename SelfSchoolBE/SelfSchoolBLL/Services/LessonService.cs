@@ -17,6 +17,18 @@ namespace SelfSchoolBLL.Services
 
         public async Task<List<Lesson>> GetALLLessons() { 
             List<Lesson> lessons = await Database.Lessons.GetAll();
+
+            for (int i = lessons.Count - 1; i >= 0; i--) 
+            {
+                var teacher = Database.Teachers.Get(lessons[i].idTeacher);
+                if (teacher == null) 
+                {
+                    DeleteLesson(lessons[i].idLesson);
+                }
+            }
+
+            lessons = await Database.Lessons.GetAll();
+
             return lessons;
         }
 
@@ -39,6 +51,13 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
+            var teacher = Database.Teachers.Get(lesson.idTeacher);
+            if (teacher == null)
+            {
+                throw new ValidationException("This teacher not found");
+            }
+
             Database.Lessons.Create(lesson);
         }
         public void UpdateLesson(Lesson lesson)
@@ -47,6 +66,24 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
+            var currentLesson = FindLesson(curL => curL.idLesson == lesson.idLesson);
+
+            if (lesson.idTeacher == currentLesson[0].idTeacher
+                && lesson.nameLesson == currentLesson[0].nameLesson
+                && lesson.idTeacher == currentLesson[0].idTeacher
+                && lesson.dateLesson == currentLesson[0].dateLesson)
+            {
+                throw new ValidationException("You didn't change anything");
+            }
+
+            var teacher = Database.Teachers.Get(lesson.idTeacher);
+
+            if (teacher == null)
+            {
+                throw new ValidationException("This teacher not found");
+            }
+
             Database.Lessons.Update(lesson);
         }
         public void DeleteLesson(int? id)

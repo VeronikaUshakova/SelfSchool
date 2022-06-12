@@ -12,17 +12,11 @@ namespace SelfSchoolDAL.Entities
     {
         [Key]
         public int idParent { get; set; }
-        [Required]
         public string loginParent { get; set; }
-        [Required]
         public string passwordParent { get; set; }
-        [Required]
         public string nameParent { get; set; }
-        [Required]
         public string surnameParent { get; set; }
-        [Required]
         public long birthdayParent { get; set; }
-        [Required]
         public string emailParent { get; set; }
         public string phoneParent { get; set; }
     }

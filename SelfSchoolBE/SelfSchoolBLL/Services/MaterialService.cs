@@ -71,6 +71,15 @@ namespace SelfSchoolBLL.Services
                 throw new ValidationException("Invalid data");
             }
 
+            var currentMaterial = FindMaterial(curM => curM.idMaterial == material.idMaterial);
+
+
+            if (material.urlMaterial == currentMaterial[0].urlMaterial &&
+                material.fileMaterial == currentMaterial[0].fileMaterial)
+            {
+                throw new ValidationException("You didn't change anything");
+            }
+
             var materials = FindMaterial(m => (material.fileMaterial == m.fileMaterial &&
             material.idMaterial != m.idMaterial) || (material.urlMaterial == m.fileMaterial &&
             material.idMaterial != m.idMaterial));

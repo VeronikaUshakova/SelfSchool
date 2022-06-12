@@ -18,6 +18,20 @@ namespace SelfSchoolBLL.Services
         public async Task<List<Answer>> GetALLAnswers()
         {
             List<Answer> answers = await Database.Answers.GetAll();
+
+            for (int i = answers.Count - 1; i >= 0; i--) 
+            {
+                var pupil = Database.Pupils.Get(answers[i].idPupil);
+                var task = Database.TaskLessons.Get(answers[i].idTask);
+                var material = Database.Materials.Get(answers[i].idMaterial);
+
+                if (pupil == null && task == null && material == null) 
+                {
+                    DeleteAnswer(answers[i].idAnswer);
+                }
+            }
+
+            answers = await Database.Answers.GetAll();
             return answers;
         }
 
@@ -48,6 +62,18 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
+
+            var currentAnswer = GetAnswer(answer.idAnswer);
+
+            if (currentAnswer.idMaterial == answer.idMaterial &&
+                currentAnswer.idPupil == answer.idPupil &&
+                currentAnswer.idTask == answer.idTask &&
+                currentAnswer.gradeAnswer == answer.gradeAnswer &&
+                currentAnswer.fastAnswer == answer.fastAnswer)
+            {
+                throw new ValidationException("You didn't change anything");
+            }
+
             Database.Answers.Update(answer);
         }
         public void DeleteAnswer(int? id)

@@ -39,9 +39,9 @@ namespace SelfSchoolBLL.Services
         {
             try
             {
-                string query = "USE master";
-                query += " RESTORE DATABASE SmartFood FROM DISK = '" + downloadPath + "'";
-                query += " WITH REPLACE";
+                string query = "USE master\n";
+                query += "RESTORE DATABASE SelfSchool FROM DISK = '" + downloadPath + "'";
+                query += "WITH REPLACE;";
                 Database.Admins.ContextConnection().ExecuteSqlRaw(query);
             }
             catch (Exception Ex)
@@ -79,9 +79,12 @@ namespace SelfSchoolBLL.Services
             admin.login = Hash.GetHashString(admin.login);
             admin.password = Hash.GetHashString(admin.password);
 
-            var adm = FindAdmin(adm => adm.login == admin.login);
+            var admins = FindAdmin(adm => adm.login == admin.login);
+            var pupils = Database.Pupils.Find(pupil => pupil.loginPupil == admin.login);
+            var parents = Database.Parents.Find(parent => parent.loginParent == admin.login);
+            var teachers = Database.Teachers.Find(teacher => teacher.loginTeacher == admin.login);
             
-            if (adm.Count != 0) {
+            if (admins.Count > 0 || pupils.Count > 0 || parents.Count > 0 || teachers.Count > 0) {
                 throw new ValidationException("This login already exists");
             }
 
@@ -113,8 +116,11 @@ namespace SelfSchoolBLL.Services
             }
 
             var admins = FindAdmin(adm => (adm.login == admin.login && adm.idAdmin != admin.idAdmin));
+            var pupils = Database.Pupils.Find(pupil => pupil.loginPupil == admin.login);
+            var parents = Database.Parents.Find(parent => parent.loginParent == admin.login);
+            var teachers = Database.Teachers.Find(teacher => teacher.loginTeacher == admin.login);
 
-            if (admins.Count != 0)
+            if (admins.Count > 0 || pupils.Count > 0 || parents.Count > 0 || teachers.Count > 0)
             {
                 throw new ValidationException("This login already exists");
             }
@@ -137,7 +143,7 @@ namespace SelfSchoolBLL.Services
             {
                 throw new ValidationException("Invalid data");
             }
-            Admin admin = Database.Admins.GetByLoginPassword(login, password);
+            Admin admin = Database.Admins.GetByLoginPassword(login, password)[0];
             if (admin.password == Hash.GetHashString(password) && admin.login == Hash.GetHashString(login))
             {
                 return true;

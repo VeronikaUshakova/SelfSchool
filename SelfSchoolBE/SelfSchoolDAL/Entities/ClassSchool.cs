@@ -12,9 +12,7 @@ namespace SelfSchoolDAL.Entities
     {
         [Key]
         public int idClass { get; set; }
-        [Required]
         public int numberClass { get; set; }
-        [Required]
         public string letterClass { get; set; }
     }
 }

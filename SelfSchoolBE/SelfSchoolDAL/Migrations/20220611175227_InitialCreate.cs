@@ -12,8 +12,8 @@ namespace SelfSchoolDAL.Migrations
                 {
                     idAdmin = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    login = table.Column<string>(nullable: false),
-                    password = table.Column<string>(nullable: false)
+                    login = table.Column<string>(nullable: true),
+                    password = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -29,7 +29,7 @@ namespace SelfSchoolDAL.Migrations
                     idPupil = table.Column<int>(nullable: false),
                     idTask = table.Column<int>(nullable: false),
                     gradeAnswer = table.Column<int>(nullable: false),
-                    fileAnswer = table.Column<byte>(nullable: false),
+                    idMaterial = table.Column<int>(nullable: false),
                     fastAnswer = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -44,7 +44,7 @@ namespace SelfSchoolDAL.Migrations
                     idClass = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     numberClass = table.Column<int>(nullable: false),
-                    letterClass = table.Column<string>(nullable: false)
+                    letterClass = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,9 +71,9 @@ namespace SelfSchoolDAL.Migrations
                 {
                     idLesson = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nameLesson = table.Column<string>(nullable: false),
+                    nameLesson = table.Column<string>(nullable: true),
                     idTeacher = table.Column<int>(nullable: false),
-                    dateLesson = table.Column<int>(nullable: false)
+                    dateLesson = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,12 +100,12 @@ namespace SelfSchoolDAL.Migrations
                 {
                     idParent = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    loginParent = table.Column<string>(nullable: false),
-                    passwordParent = table.Column<string>(nullable: false),
-                    nameParent = table.Column<string>(nullable: false),
-                    surnameParent = table.Column<string>(nullable: false),
+                    loginParent = table.Column<string>(nullable: true),
+                    passwordParent = table.Column<string>(nullable: true),
+                    nameParent = table.Column<string>(nullable: true),
+                    surnameParent = table.Column<string>(nullable: true),
                     birthdayParent = table.Column<long>(nullable: false),
-                    emailParent = table.Column<string>(nullable: false),
+                    emailParent = table.Column<string>(nullable: true),
                     phoneParent = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -119,12 +119,12 @@ namespace SelfSchoolDAL.Migrations
                 {
                     idPupil = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    loginPupil = table.Column<string>(nullable: false),
-                    passwordPupil = table.Column<string>(nullable: false),
-                    namePupil = table.Column<string>(nullable: false),
-                    surnamePupil = table.Column<string>(nullable: false),
+                    loginPupil = table.Column<string>(nullable: true),
+                    passwordPupil = table.Column<string>(nullable: true),
+                    namePupil = table.Column<string>(nullable: true),
+                    surnamePupil = table.Column<string>(nullable: true),
                     birthdayPupil = table.Column<long>(nullable: false),
-                    emailPupil = table.Column<string>(nullable: false),
+                    emailPupil = table.Column<string>(nullable: true),
                     phonePupil = table.Column<string>(nullable: true),
                     idClass = table.Column<int>(nullable: false)
                 },
@@ -140,9 +140,9 @@ namespace SelfSchoolDAL.Migrations
                     idTask = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     idLesson = table.Column<int>(nullable: false),
-                    nameTask = table.Column<string>(nullable: false),
-                    descriptionTask = table.Column<string>(nullable: false),
-                    dateTask = table.Column<int>(nullable: false),
+                    nameTask = table.Column<string>(nullable: true),
+                    descriptionTask = table.Column<string>(nullable: true),
+                    dateTask = table.Column<long>(nullable: false),
                     idMaterial = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -156,14 +156,14 @@ namespace SelfSchoolDAL.Migrations
                 {
                     idTeacher = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    loginTeacher = table.Column<string>(nullable: false),
-                    passwordTeacher = table.Column<string>(nullable: false),
-                    nameTeacher = table.Column<string>(nullable: false),
-                    surnameTeacher = table.Column<string>(nullable: false),
+                    loginTeacher = table.Column<string>(nullable: true),
+                    passwordTeacher = table.Column<string>(nullable: true),
+                    nameTeacher = table.Column<string>(nullable: true),
+                    surnameTeacher = table.Column<string>(nullable: true),
                     birthdayTeacher = table.Column<long>(nullable: false),
-                    emailTeacher = table.Column<string>(nullable: false),
+                    emailTeacher = table.Column<string>(nullable: true),
                     phoneTeacher = table.Column<string>(nullable: true),
-                    subjectTeacher = table.Column<string>(nullable: false)
+                    subjectTeacher = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

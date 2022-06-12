@@ -42,7 +42,7 @@ namespace SelfSchoolBLL.Services
             }
 
             var classSchools = FindClassSchool(cs => cs.letterClass == classSchool.letterClass &&
-                cs.numberClass == cs.numberClass);
+                cs.numberClass == classSchool.numberClass);
 
             if (classSchools.Count != 0)
             {
@@ -67,7 +67,7 @@ namespace SelfSchoolBLL.Services
             }
 
             var classSchools = FindClassSchool(cs => cs.letterClass == classSchool.letterClass &&
-                cs.numberClass == cs.numberClass && cs.idClass != classSchool.idClass);
+                cs.numberClass == classSchool.numberClass && cs.idClass != classSchool.idClass);
 
             if (classSchools.Count != 0)
             {

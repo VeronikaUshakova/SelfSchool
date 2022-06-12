@@ -12,7 +12,7 @@ namespace SelfSchoolDAL.Interfaces
     {
         Task<List<Parent>> GetAll();
         Parent Get(int id);
-        Parent GetByLoginPassword(string logon, string password);
+       List<Parent> GetByLoginPassword(string logon, string password);
 
         List<Parent> Find(Func<Parent, Boolean> predicate);
         void Create(Parent item);

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {IToastrService} from "../../../services/toastr.service";
 import {IParentService} from "../../../services/parent.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-parent-detail',
@@ -20,6 +21,7 @@ export class ParentDetailComponent implements OnInit {
     private _parentService: IParentService,
     private _toastrService: IToastrService,
     private _formBuilder: FormBuilder,
+    private translate: TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -99,5 +101,13 @@ export class ParentDetailComponent implements OnInit {
 
   public openListParent() {
     this._route.navigate(['./pages/parent/list']);
+  }
+
+  public cancel() {
+    history.back();
+  }
+
+  public getTranslate(id: string) {
+    return this.translate.instant(id);
   }
 }

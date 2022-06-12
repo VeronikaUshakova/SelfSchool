@@ -1,16 +1,19 @@
 <nb-card>
   <nb-card-header>
     <div class="material">
-      <h5>Materials</h5>
+      <h5>{{'pages.materials' | translate}}</h5>
       <div class="material-search">
-        <label class="search-label" for="search">Search:</label>
-        <input type="text" nbInput status="success" placeholder="Search" [nbFilterInput]="dataSource" id="search" class="search-input">
+        <label class="search-label" for="search">{{'general.search' | translate}}</label>
+        <input type="text" nbInput status="success" placeholder="{{'general.search' | translate}}" [nbFilterInput]="dataSource" id="search" class="search-input">
       </div>
     </div>
-    <button nbButton status="success" (click)="openNewMaterial()">New Material</button>
+    <div class="material-button">
+      <button nbButton status="success" (click)="openNewMaterial()">{{'general.button.new' | translate}} {{'pages.material' | translate}}</button>
+      <button nbButton status="success" (click)="exportExcel()">{{'general.button.excel' | translate}}</button>
+    </div>
   </nb-card-header>
   <nb-card-body>
-    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" *ngIf="materials.length !== 0">
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" *ngIf="materials.length !== 0" id="material-table">
 
       <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
       <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: defaultColumns"></tr>
@@ -38,6 +41,6 @@
         </td>
       </ng-container>
     </table>
-    <p *ngIf="materials.length === 0">Not Found Materials!</p>
+    <p *ngIf="materials.length === 0">{{'general.error.not-found-materials' | translate}}</p>
   </nb-card-body>
 </nb-card>

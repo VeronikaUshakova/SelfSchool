@@ -1,0 +1,25 @@
+<nb-card>
+  <nb-card-header>
+    {{'pages.task' | translate}} {{this.lesson.nameLesson}}
+    <input type="text" nbInput status="success" placeholder="{{'general.find' | translate}}" (input)="findTask($event)">
+  </nb-card-header>
+  <nb-card-body class="tasks">
+    <nb-card *ngFor="let task of filterTasks" (click)="openAnswer(task.idTask)">
+      <nb-card-header>
+        {{task.nameTask}}
+      </nb-card-header>
+      <nb-card-body>
+        <div class="mt-3 mb-3">
+          {{ task.descriptionTask }}
+        </div>
+        <div class="mt-3 mb-3" *ngIf="task.materials">
+          <a [href]="fileLink(task.materials)" target="_blank" (click)="$event.stopPropagation()">{{'general.button.download' | translate}}</a>
+        </div>
+        <div class="mt-3 mb-3">
+          {{ task.dateTask | date:'medium' }}
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>
+

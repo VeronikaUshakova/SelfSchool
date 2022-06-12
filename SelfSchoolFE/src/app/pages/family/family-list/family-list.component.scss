@@ -16,3 +16,20 @@ nb-card-header {
   margin-left: 1em;
   display: flex;
 }
+
+::ng-deep button {
+  text-transform: capitalize;
+}
+
+::ng-deep td {
+  cursor: pointer;
+}
+
+.family-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.family-button button {
+  margin: 0 1em;
+}

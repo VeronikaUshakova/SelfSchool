@@ -1,16 +1,19 @@
 <nb-card>
   <nb-card-header>
     <div class="task">
-      <h5>Tasks</h5>
+      <h5>{{'pages.tasks' | translate}}</h5>
       <div class="task-search">
-        <label class="search-label" for="search">Search:</label>
-        <input type="text" nbInput status="success" placeholder="Search" [nbFilterInput]="dataSource" id="search" class="search-input">
+        <label class="search-label" for="search">{{'general.search' | translate}}:</label>
+        <input type="text" nbInput status="success" placeholder="{{'general.search' | translate}}" [nbFilterInput]="dataSource" id="search" class="search-input">
       </div>
     </div>
-    <button nbButton status="success" (click)="openNewTaskLesson()">New Task</button>
+    <div class="task-button">
+      <button nbButton status="success" (click)="openNewTaskLesson()">{{'general.button.new' | translate}} {{'pages.task' | translate}}</button>
+      <button nbButton status="success" (click)="exportExcel()">{{'general.button.excel' | translate}}</button>
+    </div>
   </nb-card-header>
   <nb-card-body>
-    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" *ngIf="tasks.length !== 0">
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" *ngIf="tasks.length !== 0" id="task-table">
 
       <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
       <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: defaultColumns"></tr>
@@ -19,7 +22,7 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
           {{customColumn}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditTaskLesson(row.data.idTask)">
           {{row.data[customColumn]}}
         </td>
       </ng-container>
@@ -30,9 +33,11 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
           {{column}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditTaskLesson(row.data.idTask)">
+          {{row.data[column] || '-'}}
+        </td>
       </ng-container>
     </table>
-    <p *ngIf="tasks.length === 0">Not Found Tasks!</p>
+    <p *ngIf="tasks.length === 0">{{'general.error.not-found-tasks' | translate}}</p>
   </nb-card-body>
 </nb-card>

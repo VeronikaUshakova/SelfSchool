@@ -1,31 +1,31 @@
 <nb-card>
   <nb-card-header>
-    <h5>{{idMaterial ? 'Edit Material'  : 'New Material'}}</h5>
+    <h5>{{idMaterial ? getTranslate('general.button.edit') + " " + getTranslate('pages.material')  : getTranslate('general.button.new') + " " + getTranslate('pages.material')}}</h5>
     <nb-icon *ngIf="idMaterial" icon="trash-2-outline" status="success" (click)="deleteMaterialSchool()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form" >
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Link" formControlName="urlMaterial">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'material.link' | translate}}" formControlName="urlMaterial">
         </div>
         <div class="col-lg-3">
-          <input class="file" #file (change)="uploadFile(file.files)" type="file" nbInput fullWidth status="success" placeholder="File" formControlName="fileMaterial">
-          <button nbButton status="success" (click)="file.click()">Upload material</button>
+          <input class="file" #file (change)="uploadFile(file.files)" type="file" nbInput fullWidth status="success" placeholder="{{'material.file' | translate}}" formControlName="fileMaterial">
+          <button nbButton status="success" (click)="file.click()">{{'general.button.upload' | translate}} {{'pages.material' | translate}}</button>
         </div>
         <div class="col-lg-3">
-        <span class="upload" *ngIf="progress > 0">
-          {{progress}}%
-        </span>
+          <span class="upload" *ngIf="progress > 0">
+            {{progress}}%
+          </span>
           <span class="upload" *ngIf="message">
-          {{message}}
-        </span>
+            {{message}}
+          </span>
         </div>
       </div>
     </form>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="danger" (click)="openListMaterialSchool()">Cancel</button>
-    <button nbButton status="success" (click)="saveMaterialSchool()">Save Changes</button>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveMaterialSchool()">{{'general.button.save' | translate}}</button>
   </nb-card-footer>
 </nb-card>

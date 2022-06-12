@@ -1,5 +1,3 @@
-import {ClassSchool} from "./class-school";
-
 export class Pupil {
   private readonly _idPupil: number = 0;
   private readonly _loginPupil: string = '';
@@ -9,11 +7,11 @@ export class Pupil {
   private readonly _birthdayPupil: number = 0;
   private readonly _emailPupil: string = '';
   private readonly _phonePupil: string = '';
-  private readonly _classes: ClassSchool[] = [];
+  private readonly _idClass: number = 0;
 
   constructor(idPupil: number, loginPupil: string, passwordPupil: string, namePupil: string,
               surnamePupil: string, birthdayPupil: number, emailPupil: string, phonePupil: string,
-              classes: ClassSchool[]) {
+              classes: number) {
     this._idPupil = idPupil;
     this._loginPupil = loginPupil;
     this._passwordPupil = passwordPupil;
@@ -22,7 +20,7 @@ export class Pupil {
     this._birthdayPupil = birthdayPupil;
     this._emailPupil = emailPupil;
     this._phonePupil = phonePupil;
-    this._classes = classes;
+    this._idClass = classes;
   }
 
   public get idPupil(): number {
@@ -57,7 +55,7 @@ export class Pupil {
     return this._phonePupil;
   }
 
-  public get classes(): ClassSchool[] {
-    return this._classes;
+  public get idClass(): number {
+    return this._idClass;
   }
 }

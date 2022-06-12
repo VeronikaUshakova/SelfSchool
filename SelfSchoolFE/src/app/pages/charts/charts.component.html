@@ -1,0 +1,62 @@
+<nb-card>
+  <nb-card-header>
+    {{'chart.diagrams' | translate}}
+  </nb-card-header>
+  <nb-card-body>
+    <div *ngIf="role === 'teacher'">
+      <ngx-charts-pie-chart
+        [view]="view"
+        [results]="dataFirst"
+        [gradient]="gradient"
+        [legend]="showLegend"
+        [legendPosition]="legendPosition"
+        [labels]="showLabels"
+        [doughnut]="isDoughnut"
+      >
+      </ngx-charts-pie-chart>
+
+      <ngx-charts-bar-vertical
+        [roundEdges]="false"
+        [view]="view"
+        [results]="dataSecond"
+        [gradient]="false"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabelSecond"
+        [yAxisLabel]="yAxisLabelSecond">
+      </ngx-charts-bar-vertical>
+    </div>
+    <div>
+      <ngx-charts-bar-vertical
+        [roundEdges]="false"
+        [view]="view"
+        [results]="dataThird"
+        [gradient]="false"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabelThird"
+        [yAxisLabel]="yAxisLabelThird">
+      </ngx-charts-bar-vertical>
+
+      <ngx-charts-bar-vertical
+        [roundEdges]="false"
+        [view]="view"
+        [results]="dataFourth"
+        [gradient]="false"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabelFourth"
+        [yAxisLabel]="yAxisLabelFourth">
+      </ngx-charts-bar-vertical>
+    </div>
+  </nb-card-body>
+</nb-card>

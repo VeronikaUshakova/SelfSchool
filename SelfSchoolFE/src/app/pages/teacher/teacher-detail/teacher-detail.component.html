@@ -1,47 +1,47 @@
 <nb-card>
   <nb-card-header>
-    <h5>{{idTeacher ? 'Edit Teacher' : 'New Teacher'}}</h5>
+    <h5>{{idTeacher ? getTranslate('general.button.edit') + " " + getTranslate('pages.teacher') : getTranslate('general.button.new') + " " + getTranslate('pages.teacher')}}</h5>
     <nb-icon *ngIf="idTeacher" icon="trash-2-outline" status="success" (click)="deleteTeacher()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form" (ngSubmit)="saveTeacher()">
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Login" formControlName="loginTeacher">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.login' | translate}}" formControlName="loginTeacher">
         </div>
         <div class="col-lg-6">
-          <input type="password" nbInput fullWidth status="success" placeholder="Password" formControlName="passwordTeacher">
-        </div>
-      </div>
-      <div class="row mb-3 mt-3">
-        <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Name" formControlName="nameTeacher">
-        </div>
-        <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Surname" formControlName="surnameTeacher">
+          <input type="password" nbInput fullWidth status="success" placeholder="{{'user.password' | translate}}" formControlName="passwordTeacher">
         </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="email" nbInput fullWidth status="success" placeholder="Email" formControlName="emailTeacher">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.name' | translate}}" formControlName="nameTeacher">
         </div>
         <div class="col-lg-6">
-          <input type="tel" nbInput fullWidth status="success" placeholder="Phone" formControlName="phoneTeacher">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.surname' | translate}}" formControlName="surnameTeacher">
         </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="Birthday" formControlName="birthdayTeacher">
+          <input type="email" nbInput fullWidth status="success" placeholder="{{'user.email' | translate}}" formControlName="emailTeacher">
+        </div>
+        <div class="col-lg-6">
+          <input type="tel" nbInput fullWidth status="success" placeholder="{{'user.phone' | translate}}" formControlName="phoneTeacher">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'user.birthday' | translate}}" formControlName="birthdayTeacher">
           <nb-datepicker #datepicker></nb-datepicker>
         </div>
         <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Subject" formControlName="subjectTeacher">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'teacher.subject' | translate}}" formControlName="subjectTeacher">
         </div>
       </div>
     </form>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="danger" (click)="openListTeacher()">Cancel</button>
-    <button nbButton status="success" (click)="saveTeacher()">Save Changes</button>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveTeacher()">{{'general.button.save' | translate}}</button>
   </nb-card-footer>
 </nb-card>

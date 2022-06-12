@@ -1,0 +1,24 @@
+nb-card-header,
+nb-card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttons button,
+.buttons nb-icon {
+  margin: 0 1em;
+}
+
+.buttons nb-icon {
+  height: 100%;
+  width: 7%;
+}
+
+::ng-deep nb-icon {
+  cursor: pointer;
+}

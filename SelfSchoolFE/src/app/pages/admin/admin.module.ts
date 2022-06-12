@@ -14,6 +14,7 @@ import {
   NbTreeGridModule
 } from "@nebular/theme";
 import {ReactiveFormsModule} from "@angular/forms";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -22,16 +23,17 @@ import {ReactiveFormsModule} from "@angular/forms";
     AdminListComponent,
     AdminDetailComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    NbTreeGridModule,
-    NbCardModule,
-    NbButtonModule,
-    NbInputModule,
-    NbSelectModule,
-    ReactiveFormsModule,
-    NbIconModule,
-  ]
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        NbTreeGridModule,
+        NbCardModule,
+        NbButtonModule,
+        NbInputModule,
+        NbSelectModule,
+        ReactiveFormsModule,
+        NbIconModule,
+        TranslateModule,
+    ]
 })
 export class AdminModule { }

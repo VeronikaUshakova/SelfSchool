@@ -14,6 +14,7 @@ import {
   NbTreeGridModule
 } from "@nebular/theme";
 import {ReactiveFormsModule} from "@angular/forms";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -22,17 +23,19 @@ import {ReactiveFormsModule} from "@angular/forms";
     ParentListComponent,
     ParentDetailComponent,
   ],
-  imports: [
-    CommonModule,
-    ParentRoutingModule,
-    NbTreeGridModule,
-    NbCardModule,
-    NbButtonModule,
-    NbInputModule,
-    NbSelectModule,
-    ReactiveFormsModule,
-    NbIconModule,
-    NbDatepickerModule,
-  ]
+    imports: [
+        CommonModule,
+        ParentRoutingModule,
+        NbTreeGridModule,
+        NbCardModule,
+        NbButtonModule,
+        NbInputModule,
+        NbSelectModule,
+        ReactiveFormsModule,
+        NbIconModule,
+        NbDatepickerModule,
+        NbSelectModule,
+        TranslateModule,
+    ]
 })
 export class ParentModule { }

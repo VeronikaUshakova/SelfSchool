@@ -7,7 +7,7 @@ import {Parent} from "../classes/parent";
 export abstract class IParentService {
   abstract findParents(): Observable<Parent[]>;
   abstract findParent(id: number): Observable<Parent>;
-  abstract createParent(parent: Parent): Observable<string>;
+  abstract createParent(parent: any): Observable<string>;
   abstract editParent(parent: Parent): Observable<string>;
   abstract deleteParent(id: number): Observable<string>;
 }
@@ -29,7 +29,7 @@ export class ParentService {
     return this.http.get<Parent>(URL_API + 'parent/details/' + id);
   }
 
-  public createParent(parent: Parent): Observable<string> {
+  public createParent(parent: any): Observable<string> {
     return this.http.post<string>(URL_API + 'parent/create', parent);
   }
 

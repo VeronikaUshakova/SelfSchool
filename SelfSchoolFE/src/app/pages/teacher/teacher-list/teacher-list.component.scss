@@ -24,3 +24,12 @@ nb-card-header {
 ::ng-deep td {
   cursor: pointer;
 }
+
+.teacher-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.teacher-button button {
+  margin: 0 1em;
+}

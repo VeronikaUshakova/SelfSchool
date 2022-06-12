@@ -3,15 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
-import { AnswerModule } from './answer/answer.module';
-import { ClassSchoolModule } from './class-school/class-school.module';
-import { FamilyModule } from './family/family.module';
-import { LessonModule } from './lesson/lesson.module';
-import { MaterialModule } from './material/material.module';
-import { ParentModule } from './parent/parent.module';
-import { PupilModule } from './pupil/pupil.module';
-import { TaskModule } from './task/task.module';
-import { TeacherModule } from './teacher/teacher.module';
 import {
   NbLayoutModule,
   NbMenuModule,
@@ -22,39 +13,40 @@ import {
   NbButtonModule,
   NbInputModule,
   NbSelectModule,
-  NbDatepickerModule, NbTimepickerModule
+  NbDatepickerModule,
+  NbTimepickerModule,
+  NbAccordionModule, NbButtonGroupModule,
 } from '@nebular/theme';
 import {ReactiveFormsModule} from "@angular/forms";
+import {CalendarModule} from "angular-calendar";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
-    PagesComponent,
+    PagesComponent
   ],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    AnswerModule,
-    ClassSchoolModule,
-    FamilyModule,
-    LessonModule,
-    MaterialModule,
-    ParentModule,
-    PupilModule,
-    TaskModule,
-    TeacherModule,
-    NbLayoutModule,
-    NbSidebarModule,
-    NbMenuModule,
-    NbIconModule,
-    NbTreeGridModule,
-    NbCardModule,
-    NbButtonModule,
-    NbInputModule,
-    NbSelectModule,
-    ReactiveFormsModule,
-    NbIconModule,
-    NbDatepickerModule,
-    NbTimepickerModule,
-  ]
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
+        NbLayoutModule,
+        NbSidebarModule,
+        NbMenuModule,
+        NbIconModule,
+        NbTreeGridModule,
+        NbCardModule,
+        NbButtonModule,
+        NbInputModule,
+        NbSelectModule,
+        ReactiveFormsModule,
+        NbIconModule,
+        NbDatepickerModule,
+        NbTimepickerModule,
+        NbAccordionModule,
+        NbButtonGroupModule,
+        CalendarModule,
+        NgxChartsModule,
+        TranslateModule,
+    ]
 })
 export class PagesModule { }

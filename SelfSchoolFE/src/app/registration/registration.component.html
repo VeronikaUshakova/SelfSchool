@@ -1,0 +1,71 @@
+<nb-layout>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-header>
+        <div class="header-info">
+          <nb-icon icon="globe-outline" status="success"></nb-icon>
+          <span (click)="useLanguage('en')">{{"language.en" | translate}}</span>
+          <span> | </span>
+          <span (click)="useLanguage('uk')">{{"language.ua" | translate}}</span>
+        </div>
+        <h4>SelfSchool {{ 'registration.title' | translate}}</h4>
+      </nb-card-header>
+      <nb-card-body>
+        <nb-select placeholder="{{ 'registration.form.role' | translate}}" fullWidth (selectedChange)="roleChange($event)" [selected]="'admin'">
+          <nb-option [value]="'admin'">{{ 'registration.role.admin' | translate}}</nb-option>
+          <nb-option [value]="'pupil'">{{ 'registration.role.pupil' | translate}}</nb-option>
+          <nb-option [value]="'parent'">{{ 'registration.role.parent' | translate}}</nb-option>
+          <nb-option [value]="'teacher'">{{ 'registration.role.teacher' | translate}}</nb-option>
+        </nb-select>
+        <div [formGroup]="form" (ngSubmit)="saveChanges()">
+          <div class="row mb3 mt-3">
+            <div class="col-lg-6">
+              <input type="text" nbInput fullWidth status="success" placeholder="{{ 'registration.form.login' | translate}}" formControlName="login">
+            </div>
+            <div class="col-lg-6">
+              <input type="password" nbInput fullWidth status="success" placeholder="{{ 'registration.form.password' | translate}}" formControlName="password">
+            </div>
+          </div>
+          <div *ngIf="role !== 'admin'">
+            <div class="row mb3 mt-3">
+              <div class="col-lg-6">
+                <input type="text" nbInput fullWidth status="success" placeholder="{{ 'registration.form.name' | translate}}" formControlName="name">
+              </div>
+              <div class="col-lg-6">
+                <input type="text" nbInput fullWidth status="success" placeholder="{{ 'registration.form.surname' | translate}}" formControlName="surname">
+              </div>
+            </div>
+            <div class="row mb3 mt-3">
+              <div class="col-lg-6">
+                <input type="email" nbInput fullWidth status="success" placeholder="{{ 'registration.form.email' | translate}}" formControlName="email">
+              </div>
+              <div class="col-lg-6">
+                <input type="tel" nbInput fullWidth status="success" placeholder="{{ 'registration.form.phone' | translate}}" formControlName="phone">
+              </div>
+            </div>
+            <div class="row mb3 mt-3" *ngIf="role === 'pupil'">
+              <nb-select placeholder="{{ 'registration.form.class' | translate}}" fullWidth status="success" formControlName="idClass">
+                <nb-option *ngFor="let classSchool of classes" [value]="classSchool.idClass">
+                  {{ classSchool.numberClass }} - {{ classSchool.letterClass }}
+                </nb-option>
+              </nb-select>
+            </div>
+            <div class="row mb3 mt-3">
+              <div class="col-lg-6">
+                <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{ 'registration.form.birthday' | translate}}" formControlName="birthday">
+                <nb-datepicker #datepicker></nb-datepicker>
+              </div>
+              <div class="col-lg-6" *ngIf="role === 'teacher'">
+                <input type="text" nbInput fullWidth status="success" placeholder="{{ 'registration.form.subject' | translate}}" formControlName="subjectTeacher">
+              </div>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="danger" (click)="cancel()">{{ 'general.button.cancel' | translate}}</button>
+        <button nbButton status="success" (click)="saveChanges()">{{ 'general.button.create' | translate}} {{'registration.user' | translate}}</button>
+      </nb-card-footer>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

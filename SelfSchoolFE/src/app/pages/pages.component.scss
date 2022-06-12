@@ -1,0 +1,59 @@
+::ng-deep nb-layout-header nav {
+  justify-content: space-between !important;
+  font-size: 1.5em !important;
+}
+
+::ng-deep nb-icon {
+  font-size: 1em !important;
+  margin: 0.5em;
+}
+
+::ng-deep nb-icon:hover,
+::ng-deep span.lang:hover {
+  color: rgb(0, 154, 251);
+}
+
+::ng-deep span.lang:hover {
+  cursor: pointer;
+}
+
+::ng-deep .app-user nb-icon + ::ng-deep .app-user nb-icon {
+  margin: 1em !important;
+}
+
+::ng-deep span.line-green {
+  font-size: 1em;
+  color: #00D68F;
+  padding: 1em;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+}
+
+nb-layout-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+::ng-deep nb-card-header nb-icon {
+  width: 31px;
+  height: 40px;
+}
+
+::ng-deep nb-card-header {
+  align-items: center;
+}
+
+::ng-deep .app-user {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .app-user div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

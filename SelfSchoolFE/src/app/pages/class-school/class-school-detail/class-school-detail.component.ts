@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {IToastrService} from "../../../services/toastr.service";
 import {IClassSchoolService} from "../../../services/class-school.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-class-school-detail',
@@ -19,6 +20,7 @@ export class ClassSchoolDetailComponent implements OnInit {
     private _classSchoolService: IClassSchoolService,
     private _toastrService: IToastrService,
     private _formBuilder: FormBuilder,
+    private translate: TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -92,5 +94,13 @@ export class ClassSchoolDetailComponent implements OnInit {
 
   public openListClassSchool() {
     this._route.navigate(['./pages/class/list']);
+  }
+
+  public cancel() {
+    history.back();
+  }
+
+  public getTranslate(id: string) {
+    return this.translate.instant(id);
   }
 }

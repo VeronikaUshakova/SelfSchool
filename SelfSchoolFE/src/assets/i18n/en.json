@@ -1,0 +1,153 @@
+{
+  "language": {
+    "en": "en",
+    "ua": "ua"
+  },
+	"registration": {
+		"form": {
+			"birthday": "Birthday",
+			"class": "Class",
+			"email": "Email",
+			"login": "Login",
+			"name": "Name",
+			"password": "Password",
+			"phone": "Phone",
+			"role": "Role",
+			"subject": "Subject",
+			"surname": "Surname"
+		},
+		"role": {
+			"admin": "Admin",
+			"parent": "Parent",
+			"pupil": "Pupil",
+			"teacher": "Teacher"
+		},
+		"title": "Registration",
+		"user": "User"
+	},
+  "general": {
+    "edit": "Edit",
+    "new": "New",
+    "search": "Search",
+    "find": "Find",
+    "error": {
+      "check": "Please, check fields",
+      "incorrect": "Login or password is incorrect",
+      "not-found-admin": "Not Found Admins!",
+      "not-found-answers": "Not Found Answers!",
+      "not-found-classes": "Not Found Classes!",
+      "not-found-families": "Not Found Families!",
+      "not-found-lessons": "Not Found Lessons!",
+      "not-found-materials": "Not Found Materials!",
+      "not-found-parents": "Not Found Parents!",
+      "not-found-teachers": "Not Found Teachers!",
+      "not-found-tasks": "Not Found Tasks!",
+      "not-found-pupils": "Not Found Pupils!"
+    },
+    "button": {
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "new": "New",
+      "create": "Create New",
+      "login": "Login",
+      "registration": "Registration",
+      "save": "Save Changes",
+      "excel": "Excel Export",
+      "upload": "Upload",
+      "download": "Download",
+      "apply": "Apply"
+    }
+  },
+  "admin": {
+    "login": "Login",
+    "password": "Password",
+    "admins": "Admins"
+  },
+  "answer": {
+    "grade": "Grade",
+    "fast-answer": "Fast Answer",
+    "file": "file"
+  },
+  "pages": {
+    "admin": "Admin",
+    "admins": "Admins",
+    "answer": "Answer",
+    "answers": "Answers",
+    "class": "Class",
+    "classes": "Classes",
+    "family": "Family",
+    "families": "Families",
+    "lesson": "Lesson",
+    "lessons": "Lessons",
+    "material": "Material",
+    "materials": "Materials",
+    "parent": "Parent",
+    "parents": "Parents",
+    "pupil": "Pupil",
+    "pupils": "Pupils",
+    "task": "Tasks",
+    "tasks": "Tasks",
+    "teacher": "Teacher",
+    "teachers": "Teachers",
+    "schedule": "Schedule",
+    "subjects": "Subjects",
+    "grade": "Grade"
+  },
+  "chart": {
+    "diagrams": "Diagrams"
+  },
+  "class": {
+    "number": "Number",
+    "letter": "Letter"
+  },
+  "grade": {
+    "subject": "Subject",
+    "all-grade": "All grades",
+    "avg-grade": "Final grade"
+  },
+  "lesson": {
+    "name": "Name",
+    "date": "Date",
+    "time": "Time"
+  },
+  "material": {
+    "link": "Link",
+    "file": "File"
+  },
+  "user": {
+    "login": "Login",
+    "password": "Password",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "Email",
+    "phone": "Phone",
+    "birthday": "Birthday"
+  },
+  "personal-cabinet": {
+    "cabinet": "Personal Cabinet",
+    "data": "Personal Data",
+    "change":{
+      "password": "Change Password",
+      "data": "Change Data"
+    },
+    "backup": "Back Up",
+    "name-backup": "Name Back Up"
+  },
+  "schedule": {
+    "previous": "Previous",
+    "today": "Today",
+    "next": "Next",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day"
+  },
+  "task": {
+    "name": "Name",
+    "description": "Description",
+    "date": "Date",
+    "time": "Time"
+  },
+  "teacher": {
+    "subject": "Subject"
+  }
+}

@@ -1,0 +1,27 @@
+<nb-card class="schedule">
+  <nb-card-header>
+    <nb-button-group status="success">
+      <button nbButton mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">{{'schedule.previous' | translate}}</button>
+      <button nbButton mwlCalendarToday [(viewDate)]="viewDate">{{'schedule.today' | translate}}</button>
+      <button nbButton mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">{{'schedule.next' | translate}}</button>
+    </nb-button-group>
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    <nb-button-group status="success">
+      <button nbButton (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">{{'schedule.month' | translate}}</button>
+      <button nbButton (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">{{'schedule.week' | translate}}</button>
+      <button nbButton (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">{{'schedule.day' | translate}}</button>
+    </nb-button-group>
+  </nb-card-header>
+  <nb-card-body>
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events">
+      </mwl-calendar-month-view>
+
+      <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events">
+      </mwl-calendar-week-view>
+
+      <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events">
+      </mwl-calendar-day-view>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,16 +1,16 @@
-<nb-card>
+`<nb-card>
   <nb-card-header>
-    <h5>{{idLesson ? 'Edit Lesson'  : 'New Lesson'}}</h5>
+    <h5>{{idLesson ? getTranslate('general.button.edit') + " " + getTranslate("pages.lesson")  : getTranslate('general.button.new') + " " + getTranslate("pages.lesson")}}</h5>
     <nb-icon *ngIf="idLesson" icon="trash-2-outline" status="success" (click)="deleteLesson()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form" (ngSubmit)="saveLesson()">
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Name" formControlName="nameLesson">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'lesson.name' | translate}}" formControlName="nameLesson">
         </div>
         <div class="col-lg-6">
-          <nb-select placeholder="Teacher" fullWidth status="success" formControlName="teachers">
+          <nb-select placeholder="{{'pages.teacher' | translate}}" fullWidth status="success" formControlName="idTeacher">
             <nb-option *ngFor="let teacher of teachers" [value]="teacher.idTeacher">
               {{ teacher.nameTeacher + ' ' + teacher.surnameTeacher }}
             </nb-option>
@@ -19,29 +19,18 @@
       </div>
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="Date" formControlName="dateLesson">
+          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'lesson.date' | translate}}" formControlName="dateLesson">
           <nb-datepicker #datepicker></nb-datepicker>
         </div>
         <div class="col-lg-6">
-          <input nbInput [nbTimepicker]="timepicker" nbInput fullWidth status="success" placeholder="Time" formControlName="timeLesson">
+          <input nbInput [nbTimepicker]="timepicker" nbInput fullWidth status="success" placeholder="{{'lesson.time' | translate}}" formControlName="timeLesson">
           <nb-timepicker #timepicker></nb-timepicker>
-        </div>
-      </div>
-      <div class="row mb-3 mt-3">
-        <div class="col-lg-6">
-          <nb-select placeholder="Materials" fullWidth status="success" formControlName="materials" multiple>
-            <nb-option *ngFor="let material of materials" [value]="material.idMaterial">
-              {{ material.urlMaterial ? (material.fileMaterial ?
-                (material.urlMaterial + ' ' +material.fileMaterial) : undefined)
-                : material.urlMaterial }}
-            </nb-option>
-          </nb-select>
         </div>
       </div>
     </form>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="danger" (click)="openListLesson()">Cancel</button>
-    <button nbButton status="success" (click)="saveLesson()">Save Changes</button>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveLesson()">{{'general.button.save' | translate}}</button>
   </nb-card-footer>
 </nb-card>

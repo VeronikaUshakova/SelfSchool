@@ -1,4 +1,13 @@
+nb-card-header,
 nb-card-footer {
   display: flex;
   justify-content: space-between;
+}
+
+::ng-deep nb-icon {
+  cursor: pointer;
+}
+
+.file {
+  display: none;
 }

@@ -21,7 +21,7 @@ export class TaskLessonService {
     private http: HttpClient,
   ) { }
 
-  public findTaskLessonLessons(): Observable<TaskLesson[]> {
+  public findTaskLessons(): Observable<TaskLesson[]> {
     return this.http.get<TaskLesson[]>(URL_API + 'tasklesson/index');
   }
 

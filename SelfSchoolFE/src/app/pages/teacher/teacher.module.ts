@@ -14,6 +14,7 @@ import {
 import { TeacherListComponent } from "./teacher-list/teacher-list.component";
 import { TeacherDetailComponent } from "./teacher-detail/teacher-detail.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -22,17 +23,18 @@ import {ReactiveFormsModule} from "@angular/forms";
     TeacherListComponent,
     TeacherDetailComponent,
   ],
-  imports: [
-    CommonModule,
-    TeacherRoutingModule,
-    NbTreeGridModule,
-    NbCardModule,
-    NbButtonModule,
-    NbInputModule,
-    NbSelectModule,
-    NbDatepickerModule,
-    NbIconModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        TeacherRoutingModule,
+        NbTreeGridModule,
+        NbCardModule,
+        NbButtonModule,
+        NbInputModule,
+        NbSelectModule,
+        NbDatepickerModule,
+        NbIconModule,
+        ReactiveFormsModule,
+        TranslateModule,
+    ]
 })
 export class TeacherModule { }

@@ -1,12 +1,9 @@
-import {Parent} from "./parent";
-import {Pupil} from "./pupil";
-
 export class Family {
   private readonly _idFamily: number = 0;
-  private readonly _parents: Parent[] = [];
-  private readonly _pupils: Pupil[] = [];
+  private readonly _parents: number[] = [];
+  private readonly _pupils: number[] = [];
 
-  constructor(idFamily: number, parents: Parent[], pupils: Pupil[]) {
+  constructor(idFamily: number, parents: number[], pupils: number[]) {
     this._idFamily = idFamily;
     this._parents = parents;
     this._pupils = pupils;
@@ -16,11 +13,11 @@ export class Family {
     return this._idFamily;
   }
 
-  public get parents(): Parent[] {
+  public get parents(): number[] {
     return this._parents;
   }
 
-  public get pupils(): Pupil[] {
+  public get pupils(): number[] {
     return this._pupils;
   }
 }

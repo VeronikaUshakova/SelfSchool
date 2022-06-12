@@ -25,3 +25,11 @@ nb-card-header {
   cursor: pointer;
 }
 
+.parent-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.parent-button button {
+  margin: 0 1em;
+}

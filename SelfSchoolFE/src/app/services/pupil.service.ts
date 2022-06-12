@@ -7,7 +7,7 @@ import {Pupil} from "../classes/pupil";
 export abstract class IPupilService {
   abstract findPupils(): Observable<Pupil[]>;
   abstract findPupil(id: number): Observable<Pupil>;
-  abstract createPupil(pupil: Pupil): Observable<string>;
+  abstract createPupil(pupil: any): Observable<string>;
   abstract editPupil(pupil: Pupil): Observable<string>;
   abstract deletePupil(id: number): Observable<string>;
 }
@@ -29,7 +29,7 @@ export class PupilService {
     return this.http.get<Pupil>(URL_API + 'pupil/details/' + id);
   }
 
-  public createPupil(pupil: Pupil): Observable<string> {
+  public createPupil(pupil: any): Observable<string> {
     return this.http.post<string>(URL_API + 'pupil/create', pupil);
   }
 

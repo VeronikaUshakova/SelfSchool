@@ -1,0 +1,23 @@
+<nb-layout>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-header>
+        <div>
+          <nb-icon icon="globe-outline" status="success"></nb-icon>
+          <span (click)="useLanguage('en')">{{"language.en" | translate}}</span>
+          <span> | </span>
+          <span (click)="useLanguage('uk')">{{"language.ua" | translate}}</span>
+        </div>
+        <h4>SelfSchool</h4>
+      </nb-card-header>
+      <nb-card-body [formGroup]="form" (ngSubmit)="login()">
+        <input type="text" nbInput fullWidth status="success" placeholder="{{'registration.form.login' | translate}}" formControlName="login">
+        <input type="password" nbInput fullWidth status="success" placeholder="{{'registration.form.password' | translate}}" formControlName="password">
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="info" (click)="openRegistration()">{{'general.button.registration' | translate}}</button>
+        <button nbButton status="success" (click)="login()">{{'general.button.login' | translate}}</button>
+      </nb-card-footer>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

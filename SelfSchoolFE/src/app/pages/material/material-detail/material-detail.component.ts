@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {IToastrService} from "../../../services/toastr.service";
 import {IMaterialService} from "../../../services/material.service";
 import {HttpClient, HttpErrorResponse, HttpEventType} from "@angular/common/http";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-material-detail',
@@ -24,6 +25,7 @@ export class MaterialDetailComponent implements OnInit {
     private _materialService: IMaterialService,
     private _toastrService: IToastrService,
     private _formBuilder: FormBuilder,
+    private translate: TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -124,5 +126,13 @@ export class MaterialDetailComponent implements OnInit {
     } else {
       this._toastrService.showToastr('danger', 'You can upload only one file');
     }
+  }
+
+  public cancel() {
+    history.back();
+  }
+
+  public getTranslate(id: string) {
+    return this.translate.instant(id);
   }
 }

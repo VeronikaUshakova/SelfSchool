@@ -10,6 +10,11 @@ import {
 import {Router} from "@angular/router";
 import {TaskLesson} from "../../../classes/task-lesson";
 import {ITaskLessonService} from "../../../services/task-lesson.service";
+import {ILessonService} from "../../../services/lesson.service";
+import {IMaterialService} from "../../../services/material.service";
+import {TaskLesson_ext} from "../../../classes/extended/task-lesson_ext";
+import {IExcelService} from "../../../services/excel.service";
+import {IToastrService} from "../../../services/toastr.service";
 
 @Component({
   selector: 'app-task-list',
@@ -20,7 +25,7 @@ export class TaskListComponent implements OnInit {
 
   public tasks: TaskLesson[] = [];
   public customColumn = 'idTask';
-  public defaultColumns = ['lesson', 'nameTask', 'descriptionTask', 'dateTask', 'materials'];
+  public defaultColumns = ['lessons', 'nameTask', 'descriptionTask', 'dateTask', 'materials'];
 
   public dataSource: NbTreeGridDataSource<TaskLesson> = new NbTreeGridDataSource<TaskLesson>(new NbTreeGridSortService<TaskLesson>(),
     new NbTreeGridFilterService<TaskLesson>(), new NbTreeGridService<TaskLesson>(), new NbTreeGridDataService<TaskLesson>());
@@ -31,13 +36,31 @@ export class TaskListComponent implements OnInit {
   constructor(
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<TaskLesson>,
     private _taskLessonService: ITaskLessonService,
+    private _lessonService: ILessonService,
+    private _materialService: IMaterialService,
+    private _excelService: IExcelService,
+    private _toastrService: IToastrService,
     private _route: Router,
   ) {}
 
   ngOnInit(): void {
     this._taskLessonService.findTaskLessons().subscribe(data => {
       this.tasks = data;
-      this.dataSource = this.dataSourceBuilder.create(this.tasks);
+      let taskModification: any[] = [];
+      this.tasks.forEach(task => {
+        let data = task as any;
+        this._lessonService.findLesson(data.idLesson).subscribe(dataL => {
+          this._materialService.findMaterial(data.idMaterial).subscribe(dataM => {
+            let t = new TaskLesson_ext(task.idTask, dataL.nameLesson,
+              task.nameTask, task.descriptionTask,
+              new Date(task.dateTask).toDateString(),
+              dataM.urlMaterial ? (dataM.fileMaterial ? dataM.urlMaterial + ' '
+                + dataM.fileMaterial : dataM.urlMaterial) : '');
+            taskModification.push({data: t});
+            this.dataSource = this.dataSourceBuilder.create(taskModification);
+          });
+        })
+      })
     });
   }
 
@@ -61,5 +84,18 @@ export class TaskListComponent implements OnInit {
 
   public openNewTaskLesson() {
     this._route.navigate(['./pages/task/detail']);
+  }
+
+  public openEditTaskLesson(id: number) {
+    this._route.navigate(['./pages/task/detail'], {queryParams: {'idTask': id}});
+  }
+
+  public exportExcel() {
+    let element = document.getElementById('task-table');
+    if(element) {
+      this._excelService.exportExcel(element, 'Tasks');
+    } else {
+      this._toastrService.showToastr('warning','Tasks are not on the table.')
+    }
   }
 }

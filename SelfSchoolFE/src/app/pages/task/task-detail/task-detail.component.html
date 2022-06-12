@@ -1,1 +1,48 @@
-<p>task-detail works!</p>
+<nb-card>
+  <nb-card-header>
+    <h5>{{idTask ? getTranslate('general.button.edit') + " " + getTranslate('pages.task')  : getTranslate('general.button.new') + " " + getTranslate('pages.task')}}</h5>
+    <nb-icon *ngIf="idTask" icon="trash-2-outline" status="success" (click)="deleteTask()"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="form" (ngSubmit)="saveTask()">
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'task.name' | translate}}" formControlName="nameTask">
+        </div>
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'task.description' | translate}}" formControlName="descriptionTask">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'task.date' | translate}}" formControlName="dateTask">
+          <nb-datepicker #datepicker></nb-datepicker>
+        </div>
+        <div class="col-lg-6">
+          <input nbInput [nbTimepicker]="timepicker" nbInput fullWidth status="success" placeholder="{{'task.time' | translate}}" formControlName="timeTask">
+          <nb-timepicker #timepicker></nb-timepicker>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <nb-select placeholder="{{'pages.lesson' | translate}}" fullWidth status="success" formControlName="lessons">
+            <nb-option *ngFor="let lesson of lessons" [value]="lesson.idLesson">
+              {{ lesson.nameLesson }}
+            </nb-option>
+          </nb-select>
+        </div>
+        <div class="col-lg-6">
+          <nb-select placeholder="{{'pages.material' | translate}}" fullWidth status="success" formControlName="materials">
+            <nb-option *ngFor="let material of materials" [value]="material.idMaterial">
+              {{ material.urlMaterial ? (material.fileMaterial ? material.urlMaterial + ' ' + material.fileMaterial : material.urlMaterial) : ''}}
+            </nb-option>
+          </nb-select>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveTask()">{{'general.button.save' | translate}}</button>
+  </nb-card-footer>
+</nb-card>

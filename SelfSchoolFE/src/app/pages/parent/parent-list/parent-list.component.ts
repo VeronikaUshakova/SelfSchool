@@ -10,7 +10,9 @@ import {
 import {Router} from "@angular/router";
 import {Parent} from "../../../classes/parent";
 import {IParentService} from "../../../services/parent.service";
-import {Parent_ext} from "../../../classes/parent_ext";
+import {Parent_ext} from "../../../classes/extended/parent_ext";
+import {IExcelService} from "../../../services/excel.service";
+import {IToastrService} from "../../../services/toastr.service";
 
 @Component({
   selector: 'app-parent-list',
@@ -33,6 +35,8 @@ export class ParentListComponent implements OnInit {
   constructor(
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<Parent>,
     private _parentService: IParentService,
+    private _excelService: IExcelService,
+    private _toastrService: IToastrService,
     private _route: Router,
   ) {}
 
@@ -73,5 +77,14 @@ export class ParentListComponent implements OnInit {
 
   public openEditParent(id: number) {
     this._route.navigate(['./pages/parent/detail'], {queryParams: {'idParent': id}});
+  }
+
+  public exportExcel() {
+    let element = document.getElementById('parent-table');
+    if(element) {
+      this._excelService.exportExcel(element, 'Parents');
+    } else {
+      this._toastrService.showToastr('warning','Parents are not on the table.')
+    }
   }
 }

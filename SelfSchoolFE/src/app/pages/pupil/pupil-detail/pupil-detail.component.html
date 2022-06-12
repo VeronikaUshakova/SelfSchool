@@ -1,1 +1,54 @@
-<p>pupil-detail works!</p>
+<nb-card>
+  <nb-card-header>
+    <h5>{{idPupil ? getTranslate('general.button.edit') + " " + getTranslate('pages.pupil') : getTranslate('general.button.new') + " " + getTranslate('pages.pupil')}}</h5>
+    <div class="buttons">
+      <button *ngIf="idPupil" nbButton status="success" (click)="openGrade(this.idPupil)">{{'pages.grade' | translate}}</button>
+      <nb-icon *ngIf="idPupil" icon="trash-2-outline" status="success" (click)="deletePupil()"></nb-icon>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="form" (ngSubmit)="savePupil()">
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.login' | translate}}" formControlName="loginPupil">
+        </div>
+        <div class="col-lg-6">
+          <input type="password" nbInput fullWidth status="success" placeholder="{{'user.password' | translate}}" formControlName="passwordPupil">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.name' | translate}}" formControlName="namePupil">
+        </div>
+        <div class="col-lg-6">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.surname' | translate}}" formControlName="surnamePupil">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input type="email" nbInput fullWidth status="success" placeholder="{{'user.email' | translate}}" formControlName="emailPupil">
+        </div>
+        <div class="col-lg-6">
+          <input type="tel" nbInput fullWidth status="success" placeholder="{{'user.phone' | translate}}" formControlName="phonePupil">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'user.birthday' | translate}}" formControlName="birthdayPupil">
+          <nb-datepicker #datepicker></nb-datepicker>
+        </div>
+        <div class="col-lg-6">
+          <nb-select placeholder="{{'pages.class' | translate}}" fullWidth status="success" formControlName="classes">
+            <nb-option *ngFor="let classSchool of classes" [value]="classSchool.idClass">
+              {{ classSchool.numberClass }} - {{ classSchool.letterClass }}
+            </nb-option>
+          </nb-select>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="savePupil()">{{'general.button.save' | translate}}</button>
+  </nb-card-footer>
+</nb-card>

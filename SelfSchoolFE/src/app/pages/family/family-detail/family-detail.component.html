@@ -1,1 +1,30 @@
-<p>family-detail works!</p>
+<nb-card>
+  <nb-card-header>
+    <h5>{{idFamily ? getTranslate('general.button.edit') + " " + getTranslate('pages.family')  : getTranslate('general.button.edit') + " " + getTranslate('pages.family')}}</h5>
+    <nb-icon *ngIf="idFamily" icon="trash-2-outline" status="success" (click)="deleteFamily()"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="form" (ngSubmit)="saveFamily()">
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <nb-select multiple placeholder="{{'pages.pupil' | translate}}" fullWidth status="success" formControlName="pupils">
+            <nb-option *ngFor="let pupil of pupils" [value]="pupil.idPupil">
+              {{ pupil.namePupil + " " + pupil.surnamePupil }}
+            </nb-option>
+          </nb-select>
+        </div>
+        <div class="col-lg-6">
+          <nb-select multiple placeholder="{{'pages.parent' | translate}}" fullWidth status="success" formControlName="parents">
+            <nb-option *ngFor="let parent of parents" [value]="parent.idParent">
+              {{ parent.nameParent + " " + parent.surnameParent }}
+            </nb-option>
+          </nb-select>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveFamily()">{{'general.button.save' | translate}}</button>
+  </nb-card-footer>
+</nb-card>

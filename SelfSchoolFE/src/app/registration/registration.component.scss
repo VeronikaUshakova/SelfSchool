@@ -1,0 +1,32 @@
+nb-layout-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+input {
+  margin: 1em 0;
+}
+
+nb-card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+span:hover {
+  color: #00D68F;
+}
+
+.header-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+div span {
+  margin: 0 0.5em;
+}

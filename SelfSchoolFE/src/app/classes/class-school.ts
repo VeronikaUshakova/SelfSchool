@@ -1,5 +1,3 @@
-import {Teacher} from "./teacher";
-
 export class ClassSchool {
   private readonly _idClass: number = 0;
   private readonly _numberClass: number = 0;

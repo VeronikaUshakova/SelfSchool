@@ -10,6 +10,8 @@ import {
 import {Router} from "@angular/router";
 import {ClassSchool} from "../../../classes/class-school";
 import {IClassSchoolService} from "../../../services/class-school.service";
+import {IExcelService} from "../../../services/excel.service";
+import {IToastrService} from "../../../services/toastr.service";
 
 @Component({
   selector: 'app-class-school-list',
@@ -30,6 +32,8 @@ export class ClassSchoolListComponent implements OnInit {
   constructor(
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<ClassSchool>,
     private _classSchoolService: IClassSchoolService,
+    private _excelService: IExcelService,
+    private _toastrService: IToastrService,
     private _route: Router,
   ) {}
 
@@ -68,5 +72,14 @@ export class ClassSchoolListComponent implements OnInit {
 
   public openEditClassSchool(id: number) {
     this._route.navigate(['./pages/class/detail'], {queryParams: {'idClass': id}});
+  }
+
+  public exportExcel() {
+    let element = document.getElementById('class-table');
+    if(element) {
+      this._excelService.exportExcel(element, 'Classes');
+    } else {
+      this._toastrService.showToastr('warning','Classes are not on the table.')
+    }
   }
 }

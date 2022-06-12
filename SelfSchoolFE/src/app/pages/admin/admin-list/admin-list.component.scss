@@ -24,3 +24,12 @@ nb-card-header {
 ::ng-deep td {
   cursor: pointer;
 }
+
+.admin-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.admin-button button {
+  margin: 0 1em;
+}

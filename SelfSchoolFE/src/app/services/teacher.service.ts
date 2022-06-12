@@ -7,7 +7,7 @@ import {Teacher} from "../classes/teacher";
 export abstract class ITeacherService {
   abstract findTeachers(): Observable<Teacher[]>;
   abstract findTeacher(id: number): Observable<Teacher>;
-  abstract createTeacher(teacher: Teacher): Observable<string>;
+  abstract createTeacher(teacher: any): Observable<string>;
   abstract editTeacher(teacher: Teacher): Observable<string>;
   abstract deleteTeacher(id: number): Observable<string>;
 }
@@ -29,7 +29,7 @@ export class TeacherService {
     return this.http.get<Teacher>(URL_API + 'teacher/details/' + id);
   }
 
-  public createTeacher(teacher: Teacher): Observable<string> {
+  public createTeacher(teacher: any): Observable<string> {
     return this.http.post<string>(URL_API + 'teacher/create', teacher);
   }
 

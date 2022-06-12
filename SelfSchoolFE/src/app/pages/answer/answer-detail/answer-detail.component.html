@@ -1,12 +1,62 @@
 <nb-card>
   <nb-card-header>
-    <h5>New Answer</h5>
+    <h5>{{idAnswer ? getTranslate('general.button.edit') + " " + getTranslate('pages.answer') : getTranslate('general.button.new') + " " + getTranslate('pages.answer')}}</h5>
+    <nb-icon *ngIf="idAnswer && role !== 'pupil'" icon="trash-2-outline" status="success" (click)="deleteAnswer()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
-
+    <form [formGroup]="form">
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <nb-select placeholder="{{'pages.pupil' | translate}}" fullWidth status="success" formControlName="idPupil">
+            <nb-option *ngFor="let pupil of pupils" [value]="pupil.idPupil">
+              {{ pupil.namePupil + " " + pupil.surnamePupil }}
+            </nb-option>
+          </nb-select>
+        </div>
+        <div class="col-lg-6">
+          <nb-select placeholder="{{'pages.task' | translate}}" fullWidth status="success" formControlName="idTask">
+            <nb-option *ngFor="let task of tasks" [value]="task.idTask">
+              {{ task.nameTask }}
+            </nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6" *ngIf="answer.gradeAnswer || role !== 'pupil'">
+          <input type="number" min="1" max="12" nbInput fullWidth status="success" placeholder="{{'answer.grade' | translate}}" formControlName="gradeAnswer">
+        </div>
+        <div class="col-lg-6" *ngIf="role !== 'pupil'">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'answer.fast-answer' | translate}}" formControlName="fastAnswer">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3" *ngIf="role !== 'pupil'">
+        <div class="col-lg-6">
+          <nb-select placeholder="{{'pages.material' | translate}}" fullWidth status="success" formControlName="idMaterial">
+            <nb-option *ngFor="let material of materials" [value]="material.idMaterial">
+              {{ material.urlMaterial ? (material.fileMaterial ? material.urlMaterial + ' ' + material.fileMaterial : material.urlMaterial) : ''}}
+            </nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="col-lg-3" *ngIf="role === 'pupil' && !idAnswer">
+        <input class="file" #file (change)="uploadFile(file.files)" type="file" nbInput fullWidth status="success" placeholder="{{'answer.file' | translate}}">
+        <button nbButton status="success" (click)="file.click()">{{'general.button.upload' | translate}} {{'pages.material' | translate}}</button>
+      </div>
+      <div class="row mb-3 mt-3" *ngIf="role === 'pupil' && !idAnswer">
+        <div class="col-lg-3">
+            <span class="upload" *ngIf="progress > 0">
+              {{progress}}%
+            </span>
+          <span class="upload" *ngIf="message">
+              {{message}}
+            </span>
+        </div>
+      </div>
+      <button *ngIf="role === 'pupil' && idAnswer" nbButton status="success" (click)="fileLink();">{{'general.button.download' | translate}}</button>
+    </form>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="danger">Cancel</button>
-    <button nbButton status="success">Save Changes</button>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveAnswer()">{{'general.button.save' | translate}}</button>
   </nb-card-footer>
 </nb-card>

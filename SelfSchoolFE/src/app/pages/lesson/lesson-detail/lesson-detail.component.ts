@@ -6,7 +6,7 @@ import {ILessonService} from "../../../services/lesson.service";
 import {Teacher} from "../../../classes/teacher";
 import {ITeacherService} from "../../../services/teacher.service";
 import {IMaterialService} from "../../../services/material.service";
-import {Material} from "../../../classes/material";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-lesson-detail',
@@ -18,7 +18,6 @@ export class LessonDetailComponent implements OnInit {
   public idLesson: number = 0;
 
   public teachers: Teacher[] = [];
-  public materials: Material[] = [];
 
   constructor(
     private _route: Router,
@@ -28,11 +27,11 @@ export class LessonDetailComponent implements OnInit {
     private _materialService: IMaterialService,
     private _toastrService: IToastrService,
     private _formBuilder: FormBuilder,
+    private translate: TranslateService,
   ) { }
 
   ngOnInit(): void {
     this._findTeachers();
-    this._findMaterials();
 
     this._activatedRoute.queryParamMap.subscribe(data => {
       this.idLesson = Number(data.get('idLesson'));
@@ -43,22 +42,20 @@ export class LessonDetailComponent implements OnInit {
 
     this.form = this._formBuilder.group({
       nameLesson: ['', Validators.required],
-      teachers: ['', Validators.required],
+      idTeacher: ['', Validators.required],
       dateLesson: ['', Validators.required],
       timeLesson: ['', Validators.required],
-      materials: [[], Validators.required],
     })
   }
 
   private _findLessons(): void {
     this._lessonService.findLesson(this.idLesson).subscribe( data => {
-      this.form.patchValue(data);
-    });
-  }
-
-  private _findMaterials(): void {
-    this._materialService.findMaterials().subscribe( data => {
-      this.materials = data;
+      let lesson = {
+        ...data,
+        dateLesson: new Date(data.dateLesson),
+        timeLesson: new Date(data.dateLesson),
+      }
+      this.form.patchValue(lesson);
     });
   }
 
@@ -72,6 +69,9 @@ export class LessonDetailComponent implements OnInit {
     let data = this.form.getRawValue();
     this.idLesson ? data.idLesson = this.idLesson : undefined;
     if(this.form.valid) {
+      data.dateLesson = +new Date(data.dateLesson.getFullYear(), data.dateLesson.getMonth(), data.dateLesson.getDate(),
+        data.timeLesson.getHours(), data.timeLesson.getMinutes());
+      delete data.timeLesson;
       if (!this.idLesson) {
         this._lessonService.createLesson(data).subscribe(
           res => {
@@ -119,5 +119,13 @@ export class LessonDetailComponent implements OnInit {
 
   public openListLesson() {
     this._route.navigate(['./pages/lesson/list']);
+  }
+
+  public cancel() {
+    history.back();
+  }
+
+  public getTranslate(id: string) {
+    return this.translate.instant(id);
   }
 }

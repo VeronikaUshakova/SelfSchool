@@ -1,0 +1,35 @@
+::ng-deep nb-icon {
+  cursor: pointer;
+}
+
+.button, .button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-row {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.card-col {
+  flex: 1 0 calc(50% - 1rem);
+  margin: 0 0.5rem;
+}
+
+.col-lg-3 span {
+  font-style: italic;
+}
+
+input.file {
+  display: none;
+}
+
+nb-accordion-item-body nb-card {
+  margin: 1em !important;
+}

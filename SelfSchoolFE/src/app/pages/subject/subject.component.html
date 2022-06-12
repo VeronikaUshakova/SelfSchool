@@ -1,0 +1,16 @@
+<nb-card>
+  <nb-card-header>
+    {{'pages.subjects' | translate}}
+    <input type="text" nbInput status="success" placeholder="{{'general.find' | translate}}" (input)="findSubject($event)">
+  </nb-card-header>
+  <nb-card-body class="subjects">
+    <nb-card *ngFor="let teacher of filterTeachers" (click)="openLessonView(teacher.subjectTeacher, teacher.idTeacher)">
+      <nb-card-header>
+        {{teacher.subjectTeacher}}
+      </nb-card-header>
+      <nb-card-body>
+        {{teacher.nameTeacher}} {{teacher.surnameTeacher}}
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>

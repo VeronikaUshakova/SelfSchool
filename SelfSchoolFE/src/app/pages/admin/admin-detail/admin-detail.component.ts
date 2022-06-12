@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {IAdminService} from "../../../services/admin.service";
 import {IToastrService} from "../../../services/toastr.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-admin-detail',
@@ -20,6 +21,7 @@ export class AdminDetailComponent implements OnInit {
     private _adminService: IAdminService,
     private _toastrService: IToastrService,
     private _formBuilder: FormBuilder,
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -69,7 +71,7 @@ export class AdminDetailComponent implements OnInit {
             this._toastrService.showToastr('danger', err.error.text);
           })
       }
-    }else {
+    } else {
       this._toastrService.showToastr('danger', 'Please, check fields');
     }
   }
@@ -93,5 +95,13 @@ export class AdminDetailComponent implements OnInit {
 
   public openListAdmin() {
     this._route.navigate(['./pages/admin/list']);
+  }
+
+  public cancel() {
+    history.back();
+  }
+
+  public getTranslate(id: string) {
+    return this.translate.instant(id);
   }
 }

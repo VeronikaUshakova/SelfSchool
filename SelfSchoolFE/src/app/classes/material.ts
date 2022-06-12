@@ -1,9 +1,9 @@
 export class Material {
   private readonly _idMaterial: number = 0;
   private readonly _urlMaterial: string = '';
-  private readonly _fileMaterial: Uint8Array = new Uint8Array(0);
+  private readonly _fileMaterial: string = '';
 
-  constructor(idMaterial: number, urlMaterial: string, fileMaterial: Uint8Array) {
+  constructor(idMaterial: number, urlMaterial: string, fileMaterial: string) {
     this._idMaterial = idMaterial;
     this._urlMaterial = urlMaterial;
     this._fileMaterial = fileMaterial;
@@ -17,7 +17,7 @@ export class Material {
     return this._urlMaterial;
   }
 
-  public get fileMaterial(): Uint8Array {
+  public get fileMaterial(): string {
     return this._fileMaterial;
   }
 }

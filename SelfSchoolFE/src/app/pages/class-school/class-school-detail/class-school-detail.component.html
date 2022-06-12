@@ -1,22 +1,22 @@
 <nb-card>
   <nb-card-header>
-    <h5>{{idClass ? 'Edit Class'  : 'New Class'}}</h5>
+    <h5>{{idClass ? getTranslate('general.button.edit') + " " + getTranslate('pages.class')  : getTranslate('general.button.new') + " " + getTranslate('pages.class')}}</h5>
     <nb-icon *ngIf="idClass" icon="trash-2-outline" status="success" (click)="deleteClassSchool()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form" (ngSubmit)="saveClassSchool()">
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="number" min="1" max="12" nbInput fullWidth status="success" placeholder="Number" formControlName="numberClass">
+          <input type="number" min="1" max="12" nbInput fullWidth status="success" placeholder="{{'class.number' | translate}}" formControlName="numberClass">
         </div>
         <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Letter" formControlName="letterClass">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'class.letter' | translate}}" formControlName="letterClass">
         </div>
       </div>
     </form>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="danger" (click)="openListClassSchool()">Cancel</button>
-    <button nbButton status="success" (click)="saveClassSchool()">Save Changes</button>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveClassSchool()">{{'general.button.save' | translate}}</button>
   </nb-card-footer>
 </nb-card>

@@ -7,10 +7,11 @@ import {
   NbTreeGridService,
   NbTreeGridSortService
 } from "@nebular/theme";
-import {IAnswerService} from "../../../services/answer.service";
 import {Router} from "@angular/router";
 import {Admin} from "../../../classes/admin";
 import {IAdminService} from "../../../services/admin.service";
+import {IExcelService} from "../../../services/excel.service";
+import {IToastrService} from "../../../services/toastr.service";
 
 @Component({
   selector: 'app-admin-list',
@@ -31,6 +32,8 @@ export class AdminListComponent implements OnInit {
   constructor(
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<Admin>,
     private _adminService: IAdminService,
+    private _excelService: IExcelService,
+    private _toastrService: IToastrService,
     private _route: Router,
   ) {}
 
@@ -69,5 +72,14 @@ export class AdminListComponent implements OnInit {
 
   public openEditAdmin(id: number) {
     this._route.navigate(['./pages/admin/detail'], {queryParams: {'idAdmin': id}});
+  }
+
+  public exportExcel() {
+    let element = document.getElementById('admin-table');
+    if(element) {
+      this._excelService.exportExcel(element, 'Admins');
+    } else {
+      this._toastrService.showToastr('warning','Admins are not on the table.')
+    }
   }
 }

@@ -1,0 +1,17 @@
+<nb-card>
+  <nb-card-header>
+    {{'pages.lessons' | translate}} {{this.subject}}
+    <input type="text" nbInput status="success" placeholder="{{'general.find' | translate}}" (input)="findLesson($event)">
+  </nb-card-header>
+  <nb-card-body class="lessons">
+    <nb-card *ngFor="let lesson of filterLessons" (click)="openTaskView(lesson.idLesson)">
+      <nb-card-header>
+        {{lesson.nameLesson}}
+      </nb-card-header>
+      <nb-card-body>
+        {{ lesson.dateLesson | date }}
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>
+

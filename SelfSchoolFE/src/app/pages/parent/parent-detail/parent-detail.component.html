@@ -1,44 +1,44 @@
 <nb-card>
   <nb-card-header>
-    <h5>{{idParent ? 'Edit Parent' : 'New Parent'}}</h5>
+    <h5>{{idParent ? getTranslate('general.button.edit') + " " + getTranslate('pages.parent') : getTranslate('general.button.new') + " " + getTranslate('pages.parent')}}</h5>
     <nb-icon *ngIf="idParent" icon="trash-2-outline" status="success" (click)="deleteParent()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form" (ngSubmit)="saveParent()">
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Login" formControlName="loginParent">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.login' | translate}}" formControlName="loginParent">
         </div>
         <div class="col-lg-6">
-          <input type="password" nbInput fullWidth status="success" placeholder="Password" formControlName="passwordParent">
-        </div>
-      </div>
-      <div class="row mb-3 mt-3">
-        <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Name" formControlName="nameParent">
-        </div>
-        <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Surname" formControlName="surnameParent">
+          <input type="password" nbInput fullWidth status="success" placeholder="{{'user.password' | translate}}" formControlName="passwordParent">
         </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="email" nbInput fullWidth status="success" placeholder="Email" formControlName="emailParent">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.name' | translate}}" formControlName="nameParent">
         </div>
         <div class="col-lg-6">
-          <input type="tel" nbInput fullWidth status="success" placeholder="Phone" formControlName="phoneParent">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'user.surname' | translate}}" formControlName="surnameParent">
         </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="Birthday" formControlName="birthdayParent">
+          <input type="email" nbInput fullWidth status="success" placeholder="{{'user.email' | translate}}" formControlName="emailParent">
+        </div>
+        <div class="col-lg-6">
+          <input type="tel" nbInput fullWidth status="success" placeholder="{{'user.phone' | translate}}" formControlName="phoneParent">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-lg-6">
+          <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'user.birthday' | translate}}" formControlName="birthdayParent">
           <nb-datepicker #datepicker></nb-datepicker>
         </div>
       </div>
     </form>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="danger" (click)="openListParent()">Cancel</button>
-    <button nbButton status="success" (click)="saveParent()">Save Changes</button>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveParent()">{{'general.button.save' | translate}}</button>
   </nb-card-footer>
 </nb-card>

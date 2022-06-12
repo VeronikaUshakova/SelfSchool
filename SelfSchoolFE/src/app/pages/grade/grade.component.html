@@ -1,0 +1,18 @@
+<nb-card>
+  <nb-card-header>
+    <span>
+      {{pupil.namePupil}} {{pupil.surnamePupil}}
+    </span>
+    <button nbButton status="success" (click)="generateReport()">PDF</button>
+  </nb-card-header>
+  <nb-card-body>
+    <ol>
+      <li *ngFor="let grade of gradePupil; index as i;">
+        <p>{{'grade.subject' | translate}}: {{grade.subject}}</p>
+        <p>{{'grade.all-grade' | translate}}: {{grade.grade.join(', ') || ''}}</p>
+        <p>{{'grade.avg-grade' | translate}}: {{avg(grade.grade) || ''}}</p>
+      </li>
+    </ol>
+  </nb-card-body>
+</nb-card>
+

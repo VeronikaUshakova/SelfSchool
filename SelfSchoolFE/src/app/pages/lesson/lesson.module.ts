@@ -14,6 +14,8 @@ import {
   NbTreeGridModule
 } from "@nebular/theme";
 import {ReactiveFormsModule} from "@angular/forms";
+import { LessonViewComponent } from './lesson-view/lesson-view.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -21,20 +23,22 @@ import {ReactiveFormsModule} from "@angular/forms";
     LessonComponent,
     LessonListComponent,
     LessonDetailComponent,
+    LessonViewComponent,
   ],
-  imports: [
-    CommonModule,
-    LessonRoutingModule,
-    NbTreeGridModule,
-    NbCardModule,
-    NbButtonModule,
-    NbInputModule,
-    NbSelectModule,
-    ReactiveFormsModule,
-    NbIconModule,
-    NbSelectModule,
-    NbDatepickerModule,
-    NbTimepickerModule
-  ]
+    imports: [
+        CommonModule,
+        LessonRoutingModule,
+        NbTreeGridModule,
+        NbCardModule,
+        NbButtonModule,
+        NbInputModule,
+        NbSelectModule,
+        ReactiveFormsModule,
+        NbIconModule,
+        NbSelectModule,
+        NbDatepickerModule,
+        NbTimepickerModule,
+        TranslateModule
+    ]
 })
 export class LessonModule { }

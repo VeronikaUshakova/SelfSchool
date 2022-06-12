@@ -1,22 +1,22 @@
 <nb-card>
   <nb-card-header>
-    <h5>{{idAdmin ? 'Edit Admin'  : 'New Admin'}}</h5>
+    <h5>{{idAdmin ? getTranslate('general.edit') + ' ' + getTranslate('pages.admin')  : getTranslate('general.new') + ' ' + getTranslate('role.admin')}}</h5>
     <nb-icon *ngIf="idAdmin" icon="trash-2-outline" status="success" (click)="deleteAdmin()"></nb-icon>
   </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form" (ngSubmit)="saveAdmin()">
       <div class="row mb-3 mt-3">
         <div class="col-lg-6">
-          <input type="text" nbInput fullWidth status="success" placeholder="Login" formControlName="login">
+          <input type="text" nbInput fullWidth status="success" placeholder="{{'admin.login' | translate}}" formControlName="login">
         </div>
         <div class="col-lg-6">
-          <input type="password" nbInput fullWidth status="success" placeholder="Password" formControlName="password">
+          <input type="password" nbInput fullWidth status="success" placeholder="{{'admin.password' | translate}}" formControlName="password">
         </div>
       </div>
     </form>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="danger" (click)="openListAdmin()">Cancel</button>
-    <button nbButton status="success" (click)="saveAdmin()">Save Changes</button>
+    <button nbButton status="danger" (click)="cancel()">{{'general.button.cancel' | translate}}</button>
+    <button nbButton status="success" (click)="saveAdmin()">{{'general.button.save' | translate}}</button>
   </nb-card-footer>
 </nb-card>

@@ -10,7 +10,9 @@ import {
 import {Router} from "@angular/router";
 import {Teacher} from "../../../classes/teacher";
 import {ITeacherService} from "../../../services/teacher.service";
-import {Teacher_ext} from "../../../classes/teacher_ext";
+import {Teacher_ext} from "../../../classes/extended/teacher_ext";
+import {IExcelService} from "../../../services/excel.service";
+import {IToastrService} from "../../../services/toastr.service";
 
 @Component({
   selector: 'app-teacher-list',
@@ -33,6 +35,8 @@ export class TeacherListComponent implements OnInit {
   constructor(
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<Teacher>,
     private _teacherService: ITeacherService,
+    private _excelService: IExcelService,
+    private _toastrService: IToastrService,
     private _route: Router,
   ) {}
 
@@ -74,5 +78,14 @@ export class TeacherListComponent implements OnInit {
 
   public openEditTeacher(id: number) {
     this._route.navigate(['./pages/teacher/detail'], {queryParams: {'idTeacher': id}});
+  }
+
+  public exportExcel() {
+    let element = document.getElementById('teacher-table');
+    if(element) {
+      this._excelService.exportExcel(element, 'Teachers');
+    } else {
+      this._toastrService.showToastr('warning','Teachers are not on the table.')
+    }
   }
 }

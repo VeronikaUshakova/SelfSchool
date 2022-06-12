@@ -14,6 +14,8 @@ import {
 import { ClassSchoolListComponent } from "./class-school-list/class-school-list.component";
 import { ClassSchoolDetailComponent } from "./class-school-detail/class-school-detail.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ClassSchoolPupilComponent } from './class-school-pupil/class-school-pupil.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -21,17 +23,19 @@ import {ReactiveFormsModule} from "@angular/forms";
     ClassSchoolComponent,
     ClassSchoolListComponent,
     ClassSchoolDetailComponent,
+    ClassSchoolPupilComponent,
   ],
-  imports: [
-    CommonModule,
-    ClassSchoolRoutingModule,
-    NbTreeGridModule,
-    NbCardModule,
-    NbButtonModule,
-    NbInputModule,
-    NbSelectModule,
-    NbIconModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        ClassSchoolRoutingModule,
+        NbTreeGridModule,
+        NbCardModule,
+        NbButtonModule,
+        NbInputModule,
+        NbSelectModule,
+        NbIconModule,
+        ReactiveFormsModule,
+        TranslateModule,
+    ]
 })
 export class ClassSchoolModule { }

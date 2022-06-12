@@ -1,0 +1,19 @@
+.lessons {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1em;
+}
+
+.lessons nb-card:hover {
+  border: 2px solid #00D68F;
+  cursor: pointer;
+}
+
+nb-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+nb-card nb-card {
+  margin: 1em !important;
+}

@@ -10,6 +10,10 @@ import {
 import {Router} from "@angular/router";
 import {Pupil} from "../../../classes/pupil";
 import {IPupilService} from "../../../services/pupil.service";
+import {Pupil_ext} from "../../../classes/extended/pupil_ext";
+import {IClassSchoolService} from "../../../services/class-school.service";
+import {IExcelService} from "../../../services/excel.service";
+import {IToastrService} from "../../../services/toastr.service";
 
 @Component({
   selector: 'app-pupil-list',
@@ -32,13 +36,26 @@ export class PupilListComponent implements OnInit {
   constructor(
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<Pupil>,
     private _pupilService: IPupilService,
+    private _classSchollService: IClassSchoolService,
+    private _excelService: IExcelService,
+    private _toastrService: IToastrService,
     private _route: Router,
   ) {}
 
   ngOnInit(): void {
     this._pupilService.findPupils().subscribe(data => {
       this.pupils = data;
-      this.dataSource = this.dataSourceBuilder.create(this.pupils);
+      let pupilsModification: any[] = [];
+      this.pupils.forEach(pupil => {
+        let data = pupil as any;
+        this._classSchollService.findClassSchool(data.idClass).subscribe(c => {
+          let p = new Pupil_ext(pupil.idPupil, pupil.loginPupil, pupil.passwordPupil, pupil.namePupil,
+            pupil.surnamePupil, new Date(pupil.birthdayPupil).toDateString(), pupil.emailPupil,
+            pupil.phonePupil, c.numberClass + ' - ' + c.letterClass);
+          pupilsModification.push({data: p});
+          this.dataSource = this.dataSourceBuilder.create(pupilsModification);
+        });
+      })
     });
   }
 
@@ -62,5 +79,18 @@ export class PupilListComponent implements OnInit {
 
   public openNewPupil() {
     this._route.navigate(['./pages/pupil/detail']);
+  }
+
+  public openEditPupil(id: number) {
+    this._route.navigate(['./pages/pupil/detail'], {queryParams: {'idPupil': id}});
+  }
+
+  public exportExcel() {
+    let element = document.getElementById('pupil-table');
+    if(element) {
+      this._excelService.exportExcel(element, 'Pupils');
+    } else {
+      this._toastrService.showToastr('warning','Pupils are not on the table.')
+    }
   }
 }

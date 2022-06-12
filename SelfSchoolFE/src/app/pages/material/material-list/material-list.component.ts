@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 import {Material} from "../../../classes/material";
 import {IMaterialService} from "../../../services/material.service";
 import {URL_API} from "../../../shared/constants";
+import {IExcelService} from "../../../services/excel.service";
+import {IToastrService} from "../../../services/toastr.service";
 
 @Component({
   selector: 'app-material-list',
@@ -32,6 +34,8 @@ export class MaterialListComponent implements OnInit {
   constructor(
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<Material>,
     private _materialService: IMaterialService,
+    private _excelService: IExcelService,
+    private _toastrService: IToastrService,
     private _route: Router,
   ) {}
 
@@ -74,5 +78,14 @@ export class MaterialListComponent implements OnInit {
 
   public fileLink(fileLink: string){
     return URL_API + fileLink;
+  }
+
+  public exportExcel() {
+    let element = document.getElementById('material-table');
+    if(element) {
+      this._excelService.exportExcel(element, 'Materials');
+    } else {
+      this._toastrService.showToastr('warning','Materials are not on the table.')
+    }
   }
 }

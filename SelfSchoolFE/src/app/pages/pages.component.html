@@ -1,7 +1,26 @@
 <nb-layout>
   <nb-layout-header>
-    <nb-icon icon="menu-outline" (click)="toggleMenu()"></nb-icon>
-    SelfSchool
+    <div class="app-menu">
+      <nb-icon icon="menu-outline" (click)="toggleMenu()"></nb-icon>
+      SelfSchool
+    </div>
+    <div class="app-user">
+      <div>
+        <nb-icon icon="globe-outline" status="success"></nb-icon>
+        <span class="line-green"> | </span>
+        <span class="lang" (click)="useLanguage('en')">{{"language.en" | translate}}</span>
+        <span class="line-green"> | </span>
+        <span class="lang" (click)="useLanguage('uk')">{{"language.ua" | translate}}</span>
+      </div>
+      <span class="line-green"> | </span>
+      <span>{{role === 'admin' ? getAdmin() : userName}}</span>
+      <span class="line-green"> | </span>
+      <nb-icon icon="person-outline" (click)="openPersonalCabinet()"></nb-icon>
+      <span class="line-green" *ngIf="role === 'teacher' || role === 'pupil'"> | </span>
+      <nb-icon icon="bar-chart-2-outline" (click)="openCharts()" *ngIf="role === 'teacher' || role === 'pupil'"></nb-icon>
+      <span class="line-green"> | </span>
+      <nb-icon icon="log-out-outline" (click)="logOut()"></nb-icon>
+    </div>
   </nb-layout-header>
   <nb-sidebar>
     <nb-menu [items]="items"></nb-menu>

@@ -58,8 +58,34 @@ const routes: Routes = [
         loadChildren: () =>
           import('./admin/admin.module').then((m) => m.AdminModule),
       },
+      {
+        path: 'admin',
+        loadChildren: () =>
+          import('./admin/admin.module').then((m) => m.AdminModule),
+      },
+      {
+        path: 'personal-cabinet',
+        loadChildren: () =>
+          import('./personal-cabinet/personal-cabinet.module').then((m) => m.PersonalCabinetModule),
+      },
+      {
+        path: 'schedule',
+        loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule)
+      },
+      {
+        path: 'subject',
+        loadChildren: () => import('./subject/subject.module').then(m => m.SubjectModule)
+      },
+      {
+        path: 'chart',
+        loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule)
+      },
+      {
+        path: 'grade',
+        loadChildren: () => import('./grade/grade.module').then(m => m.GradeModule)
+      },
     ],
-  }
+  },
 ];
 
 @NgModule({

@@ -12,14 +12,21 @@ import {
   NbMenuModule,
   NbTreeGridModule,
   NbButtonModule,
-  NbCardModule, NbInputModule, NbSelectModule, NbToastrModule, NbDatepickerModule, NbTimepickerModule
+  NbCardModule,
+  NbInputModule,
+  NbSelectModule,
+  NbToastrModule,
+  NbDatepickerModule,
+  NbTimepickerModule,
+  NbAccordionModule,
+  NbButtonGroupModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   AnswerService,
   IAnswerService
 } from "./services/answer.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AdminService, IAdminService} from "./services/admin.service";
 import {ClassSchoolService, IClassSchoolService} from "./services/class-school.service";
 import {FamilyService, IFamilyService} from "./services/family.service";
@@ -31,6 +38,15 @@ import {ITaskLessonService, TaskLessonService} from "./services/task-lesson.serv
 import {ITeacherService, TeacherService} from "./services/teacher.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {IToastrService, ToastrService} from "./services/toastr.service";
+import {ExcelService, IExcelService} from "./services/excel.service";
+import {LoginModule} from "./login/login.module";
+import {ILoginService, LoginService} from "./services/login.service";
+import {IUserService, UserService} from "./services/user.service";
+import {CalendarModule, DateAdapter} from "angular-calendar";
+import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 @NgModule({
   declarations: [
@@ -41,6 +57,7 @@ import {IToastrService, ToastrService} from "./services/toastr.service";
     BrowserModule,
     AppRoutingModule,
     PagesModule,
+    LoginModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
@@ -56,6 +73,20 @@ import {IToastrService, ToastrService} from "./services/toastr.service";
     ReactiveFormsModule,
     NbDatepickerModule.forRoot(),
     NbTimepickerModule.forRoot(),
+    NbAccordionModule,
+    NbButtonGroupModule,
+    NgxChartsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     { provide: IAnswerService, useClass: AnswerService },
@@ -68,8 +99,15 @@ import {IToastrService, ToastrService} from "./services/toastr.service";
     { provide: IPupilService, useClass: PupilService },
     { provide: ITaskLessonService, useClass: TaskLessonService },
     { provide: ITeacherService, useClass: TeacherService },
-    { provide: IToastrService, useClass: ToastrService }
+    { provide: IToastrService, useClass: ToastrService },
+    { provide: IExcelService, useClass: ExcelService },
+    { provide: ILoginService, useClass: LoginService },
+    { provide: IUserService, useClass: UserService },
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

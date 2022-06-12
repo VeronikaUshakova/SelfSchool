@@ -1,0 +1,237 @@
+<nb-card>
+  <nb-card-header>
+    {{'personal-cabinet.cabinet' | translate}}
+  </nb-card-header>
+  <nb-card-body>
+    <nb-accordion multi>
+      <nb-accordion-item expanded>
+        <nb-accordion-item-header>
+          {{'personal-cabinet.data' | translate}}
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <div *ngIf="role === 'admin'">
+            <form [formGroup]="formAdmin">
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.login' | translate}}" formControlName="login">
+                </div>
+                <div class="col-lg-6">
+                  <input type="password" nbInput fullWidth status="success" placeholder="{{'user.password' | translate}}" formControlName="password">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="role === 'teacher'">
+            <form [formGroup]="formTeacher">
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.login' | translate}}" formControlName="loginTeacher">
+                </div>
+                <div class="col-lg-6">
+                  <input type="password" nbInput fullWidth status="success" placeholder="{{'user.password' | translate}}" formControlName="passwordTeacher">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.name' | translate}}" formControlName="nameTeacher">
+                </div>
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.surname' | translate}}" formControlName="surnameTeacher">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="email" nbInput fullWidth status="success" placeholder="{{'user.email' | translate}}" formControlName="emailTeacher">
+                </div>
+                <div class="col-lg-6">
+                  <input type="tel" nbInput fullWidth status="success" placeholder="{{'user.phone' | translate}}" formControlName="phoneTeacher">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'user.birthday' | translate}}" formControlName="birthdayTeacher">
+                  <nb-datepicker #datepicker></nb-datepicker>
+                </div>
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'pages.subject' | translate}}" formControlName="subjectTeacher">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="role === 'pupil'">
+            <form [formGroup]="formPupil">
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.login' | translate}}" formControlName="loginPupil">
+                </div>
+                <div class="col-lg-6">
+                  <input type="password" nbInput fullWidth status="success" placeholder="{{'user.password' | translate}}" formControlName="passwordPupil">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.name' | translate}}" formControlName="namePupil">
+                </div>
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.surname' | translate}}" formControlName="surnamePupil">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="email" nbInput fullWidth status="success" placeholder="{{'user.email' | translate}}" formControlName="emailPupil">
+                </div>
+                <div class="col-lg-6">
+                  <input type="tel" nbInput fullWidth status="success" placeholder="{{'user.phone' | translate}}" formControlName="phonePupil">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'user.birthday' | translate}}" formControlName="birthdayPupil">
+                  <nb-datepicker #datepicker></nb-datepicker>
+                </div>
+                <div class="col-lg-6">
+                  <nb-select placeholder="{{'pages.class' | translate}}" fullWidth status="success" formControlName="classes">
+                    <nb-option *ngFor="let classSchool of classes" [value]="classSchool.idClass">
+                      {{ classSchool.numberClass }} - {{ classSchool.letterClass }}
+                    </nb-option>
+                  </nb-select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="role === 'parent'">
+            <form [formGroup]="formParent">
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.login' | translate}}" formControlName="loginParent">
+                </div>
+                <div class="col-lg-6">
+                  <input type="password" nbInput fullWidth status="success" placeholder="{{'user.password' | translate}}" formControlName="passwordParent">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.name' | translate}}" formControlName="nameParent">
+                </div>
+                <div class="col-lg-6">
+                  <input type="text" nbInput fullWidth status="success" placeholder="{{'user.surname' | translate}}" formControlName="surnameParent">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input type="email" nbInput fullWidth status="success" placeholder="{{'user.email' | translate}}" formControlName="emailParent">
+                </div>
+                <div class="col-lg-6">
+                  <input type="tel" nbInput fullWidth status="success" placeholder="{{'user.phone' | translate}}" formControlName="phoneParent">
+                </div>
+              </div>
+              <div class="row mb-3 mt-3">
+                <div class="col-lg-6">
+                  <input [nbDatepicker]="datepicker" nbInput fullWidth status="success" placeholder="{{'user.birthday' | translate}}" formControlName="birthdayParent">
+                  <nb-datepicker #datepicker></nb-datepicker>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="buttonShow" class="button-end">
+            <button nbButton status="success" (click)="saveChanges()">{{'general.button.save' | translate}}</button>
+          </div>
+          <hr>
+          <div class="button">
+              <button nbButton status="info" (click)="changePassword()">{{'personal-cabinet.change.password' | translate}}</button>
+              <button nbButton status="info" (click)="changePersonalData()">{{'personal-cabinet.change.data' | translate}}</button>
+          </div>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+      <nb-accordion-item expanded *ngIf="role === 'pupil' || role === 'parent'">
+        <nb-accordion-item-header>
+          {{'pages.family' | translate}}
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <form [formGroup]="formFamily">
+            <div class="row mb-3 mt-3">
+              <div class="col-lg-6">
+                <nb-select multiple placeholder="{{'pages.pupil' | translate}}" fullWidth status="success" formControlName="pupils">
+                  <nb-option *ngFor="let pupil of pupils" [value]="pupil.idPupil">
+                    {{ pupil.namePupil + " " + pupil.surnamePupil }}
+                  </nb-option>
+                </nb-select>
+              </div>
+              <div class="col-lg-6">
+                <nb-select multiple placeholder="{{'pages.parent' | translate}}" fullWidth status="success" formControlName="parents">
+                  <nb-option *ngFor="let parent of parents" [value]="parent.idParent">
+                    {{ parent.nameParent + " " + parent.surnameParent }}
+                  </nb-option>
+                </nb-select>
+              </div>
+            </div>
+          </form>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+      <nb-accordion-item expanded *ngIf="role === 'pupil'">
+        <nb-accordion-item-header>
+          {{'pages.grade' | translate}}
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <button nbButton status="success" (click)="openGrade(this.user.idPupil)">{{'pages.grade' | translate}}</button>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+      <nb-accordion-item expanded *ngIf="role === 'admin'">
+        <nb-accordion-item-header>
+          {{'personal-cabinet.backup' | translate}}
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <div class="card-row">
+            <div class="card-col">
+              <nb-card>
+                <nb-card-header>
+                  {{'general.button.create' | translate}} {{'personal-cabinet.backup' | translate}}
+                </nb-card-header>
+                <nb-card-body>
+                  <form [formGroup]="formCreateBackUp">
+                    <div class="row mb-3 mt-3">
+                      <div class="col-lg-12">
+                        <input type="text" nbInput fullWidth status="success" placeholder="{{'personal-cabinet.name-backup' | translate}}" formControlName="fileName">
+                      </div>
+                    </div>
+                  </form>
+                  <button nbButton status="success" (click)="createBackUp()">
+                    {{'general.button.create' | translate}} {{'personal-cabinet.backup' | translate}}
+                  </button>
+                </nb-card-body>
+              </nb-card>
+              <nb-card>
+                <nb-card-header>
+                  {{'general.button.apply' | translate}} {{'personal-cabinet.backup' | translate}}
+                </nb-card-header>
+                <nb-card-body>
+                  <form [formGroup]="formApplyBackUp">
+                    <div class="row mb-3 mt-3">
+                      <div class="col-lg-12">
+                        <input class="file" #file (change)="uploadFile(file.files)" type="file" nbInput fullWidth status="success" placeholder="{{'material.file' | translate}}" formControlName="fileBackUp">
+                        <button nbButton status="success" (click)="file.click()">
+                          {{'general.button.upload' | translate}} {{'pages.material' | translate}}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <span class="upload" *ngIf="progress > 0">
+                        {{progress}}%
+                  </span>
+                  <span class="upload" *ngIf="message">
+                        {{message}}
+                  </span>
+                  <div>
+                    <button nbButton status="success" (click)="applyBackUp()">
+                      {{'general.button.apply' | translate}} {{'personal-cabinet.backup' | translate}}
+                    </button>
+                  </div>
+                </nb-card-body>
+              </nb-card>
+            </div>
+          </div>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </nb-card-body>
+</nb-card>

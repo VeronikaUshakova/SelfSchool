@@ -1,20 +1,18 @@
-import {Pupil} from "./pupil";
-
 export class Answer {
   private readonly _idAnswer: number = 0;
-  private readonly _pupils: Pupil[] = [];
-  private readonly _tasks: Task[] = [];
+  private readonly _idPupil: number = 0;
+  private readonly _idTask: number = 0;
   private readonly _gradeAnswer: number = 0;
-  private readonly _fileAnswer: string = '';
+  private readonly _idMaterial: number = 0;
   private readonly _fastAnswer: string = '';
 
-  constructor(idAnswer: number, pupils: Pupil[], tasks: Task[], gradeAnswer: number,
-              fileAnswer: string, fastAnswer: string) {
+  constructor(idAnswer: number, idPupil: number, idTask: number, gradeAnswer: number,
+              idMaterial: number, fastAnswer: string) {
     this._idAnswer = idAnswer;
-    this._pupils = pupils;
-    this._tasks = tasks;
+    this._idPupil = idPupil;
+    this._idTask = idTask;
     this._gradeAnswer = gradeAnswer;
-    this._fileAnswer = fileAnswer;
+    this._idMaterial = idMaterial;
     this._fastAnswer = fastAnswer;
   }
 
@@ -22,16 +20,16 @@ export class Answer {
     return this._idAnswer;
   }
 
-  public get pupils(): Pupil[] {
-    return this._pupils;
+  public get idPupil(): number {
+    return this._idPupil;
   }
 
-  public get tasks(): Task[] {
-    return this._tasks;
+  public get idTask(): number {
+    return this._idTask;
   }
 
-  public get fileAnswer(): string {
-    return this._fileAnswer;
+  public get idMaterial(): number {
+    return this._idMaterial;
   }
 
   public get gradeAnswer(): number {

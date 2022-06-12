@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TaskComponent } from './task.component';
 import { TaskListComponent } from "./task-list/task-list.component";
 import { TaskDetailComponent } from "./task-detail/task-detail.component";
+import {TaskViewComponent} from "./task-view/task-view.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'detail',
         component: TaskDetailComponent,
+      },
+      {
+        path: 'view',
+        component: TaskViewComponent,
       },
     ]
   }

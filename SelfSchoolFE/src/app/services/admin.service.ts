@@ -10,6 +10,8 @@ export abstract class IAdminService {
   abstract createAdmin(admin: Admin): Observable<string>;
   abstract editAdmin(admin: Admin): Observable<string>;
   abstract deleteAdmin(id: number): Observable<string>;
+  abstract backUp(file_name: string): Observable<string>;
+  abstract applyBackUp(file_name: string): Observable<string>;
 }
 
 @Injectable({
@@ -39,5 +41,13 @@ export class AdminService {
 
   public deleteAdmin(id: number): Observable<string> {
     return this.http.delete<string>(URL_API + 'admin/delete/' + id);
+  }
+
+  public backUp(file_name: string): Observable<string> {
+    return this.http.get<string>(URL_API + 'admin/backup?filename=' + file_name);
+  }
+
+  public applyBackUp(file_name: string): Observable<string> {
+    return this.http.get<string>(URL_API + 'admin/restorebackup?filename=' + file_name);
   }
 }

@@ -1,0 +1,28 @@
+<nb-card *ngIf="classSchool.idClass && role === 'pupil'">
+  <nb-card-header>
+    {{classSchool.numberClass}} - {{classSchool.letterClass}}
+  </nb-card-header>
+  <nb-card-body>
+    <ol>
+      <li *ngFor="let pupil of pupils">
+        {{pupil.namePupil}} {{pupil.surnamePupil}}
+      </li>
+    </ol>
+  </nb-card-body>
+</nb-card>
+
+<div class="parent" *ngIf="role === 'parent'">
+  <nb-card *ngFor="let fp of familyPupils; index as i;">
+    <nb-card-header>
+      {{fp}} ({{pupilsClass[i]}})
+      <button nbButton status="success" (click)="openGrade(familyPupilsId[i])">Grade</button>
+    </nb-card-header>
+    <nb-card-body>
+      <ol>
+        <li *ngFor="let pc of  pupilsInClass[i]">
+          {{pc}}
+        </li>
+      </ol>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,16 +1,18 @@
 <nb-card>
   <nb-card-header>
     <div class="answer">
-      <h5>Answers</h5>
+      <h5>{{'pages.answers' | translate}}</h5>
       <div class="answer-search">
-        <label class="search-label" for="search">Search:</label>
+        <label class="search-label" for="search">{{'general.search' | translate}}:</label>
         <input type="text" nbInput status="success" placeholder="Search" [nbFilterInput]="dataSource" id="search" class="search-input">
       </div>
     </div>
-    <button nbButton status="success" (click)="openNewAnswer()">New Answer</button>
-  </nb-card-header>
+    <div class="answer-button">
+      <button nbButton status="success" (click)="openNewAnswer()">{{'general.button.new' | translate}} {{'pages.answer' | translate}}</button>
+      <button nbButton status="success" (click)="exportExcel()">{{'general.button.excel' | translate}}</button>
+    </div>  </nb-card-header>
   <nb-card-body>
-    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" *ngIf="answers.length !== 0">
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" *ngIf="answers.length !== 0" id="answer-table">
 
       <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="defaultColumns"></tr>
       <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: defaultColumns"></tr>
@@ -19,7 +21,7 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
           {{customColumn}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditAnswer(row.data.idAnswer)">
           {{row.data[customColumn]}}
         </td>
       </ng-container>
@@ -30,9 +32,11 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
           {{column}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="openEditAnswer(row.data.idAnswer)">
+          {{row.data[column] || '-'}}
+        </td>
       </ng-container>
     </table>
-    <p *ngIf="answers.length === 0">Not Found Answers!</p>
+    <p *ngIf="answers.length === 0">{{'general.error.not-found-answers' | translate}}</p>
   </nb-card-body>
 </nb-card>

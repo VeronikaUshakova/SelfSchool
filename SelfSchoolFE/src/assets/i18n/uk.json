@@ -1,0 +1,153 @@
+{
+  "language": {
+    "en": "англ",
+    "ua": "укр"
+  },
+  "registration": {
+    "form": {
+      "birthday": "День народження",
+      "class": "Клас",
+      "email": "Електронна пошта",
+      "login": "Логін",
+      "name": "Ім'я",
+      "password": "Пароль",
+      "phone": "Телефон",
+      "role": "Роль",
+      "subject": "Предмет",
+      "surname": "Прізвище"
+    },
+    "role": {
+      "admin": "Адміністратор",
+      "parent": "Батько",
+      "pupil": "Учень",
+      "teacher": "Учитель"
+    },
+    "title": "Реєстрація",
+    "user": "Користувач"
+  },
+  "general": {
+    "edit": "Редагувати",
+    "new": "Новий",
+    "search": "Пошук",
+    "find": "Знайти",
+    "error": {
+      "check": "Будь ласка, перевірте поля",
+      "incorrect": "Логін або пароль неправильні",
+      "not-found-admin": "Не знайдено адміністраторів!",
+      "not-found-answers": "Не знайдено відповідей!",
+      "not-found-classes": "Класи не знайдені!",
+      "not-found-families": "Не знайдено сімей!",
+      "not-found-lessons": "Не знайдені уроки!",
+      "not-found-materials": "Матеріали не знайдені!",
+      "not-found-parents": "Не знайдено батьків!",
+      "not-found-teachers": "Не знайдено вчителів!",
+      "not-found-tasks": "Не знайдено завдань!",
+      "not-found-pupils": "Не знайдено учнів!"
+    },
+    "button": {
+      "edit": "Редагувати",
+      "cancel": "Скасувати",
+      "new": "Новий",
+      "create": "Створити новий",
+      "login": "Увійти",
+      "registration": "Реєстрація",
+      "save": "Зберегти зміни",
+      "excel": "Експорт в Excel",
+      "upload": "Загрузити",
+      "download": "Завантажити",
+      "apply": "Застосувати"
+    }
+  },
+  "admin": {
+    "login": "Увійти",
+    "password": "Пароль",
+    "admins": "Адміністратори"
+  },
+  "answer": {
+    "grade": "Оцінка",
+    "fast-answer": "Швидка відповідь",
+    "file": "Файл"
+  },
+  "pages": {
+    "admin": "Адміністратор",
+    "admins": "Адміністратори",
+    "answer": "Відповідь",
+    "answers": "Відповіді",
+    "class": "Клас",
+    "classes": "Класи",
+    "family": "Сім'я",
+    "families": "Сім'ї",
+    "lesson": "Урок",
+    "lessons": "Уроки",
+    "material": "Матеріал",
+    "materials": "Матеріали",
+    "parent": "Батько",
+    "parents": "Батьки",
+    "pupil": "Учень",
+    "pupils": "Учні",
+    "task": "Завдання",
+    "tasks": "Завдання",
+    "teacher": "Вчитель",
+    "teachers": "Вчителі",
+    "schedule": "Розклад",
+    "subjects": "Предмети",
+    "grade": "Оцінка"
+  },
+  "chart": {
+    "diagrams": "Діаграми"
+  },
+  "class": {
+    "number": "Номер",
+    "letter": "Літера"
+  },
+  "grade": {
+    "subject": "Предмет",
+    "all-grade": "Усі оцінки",
+    "avg-grade": "Підсумкова оцінка"
+  },
+  "lesson": {
+    "name": "Ім'я",
+    "date": "Дата",
+    "time": "Час"
+  },
+  "material": {
+    "link": "Посилання",
+    "file": "Файл"
+  },
+  "user": {
+    "login": "Логін",
+    "password": "Пароль",
+    "name": "Ім'я",
+    "surname": "Прізвище",
+    "email": "Електронна пошта",
+    "phone": "Телефон",
+    "birthday": "День народження"
+  },
+  "personal-cabinet": {
+    "cabinet": "Особистий кабінет",
+    "data": "Особисті дані",
+    "change": {
+      "password": "Змінити пароль",
+      "data": "Змінити дані"
+    },
+    "backup": "Резервне копіювання",
+    "name-backup": "Назва резервного копіювання "
+  },
+  "schedule": {
+    "previous": "Попередній",
+    "today": "Сьогодні",
+    "next": "Наступний",
+    "month": "Місяць",
+    "week": "Тиждень",
+    "day": "День"
+  },
+  "task": {
+    "name": "Назва",
+    "description": "Опис",
+    "date": "Дата",
+    "time": "Час"
+  },
+  "teacher": {
+    "subject": "Урок"
+  }
+}
